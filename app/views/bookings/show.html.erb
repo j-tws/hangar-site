@@ -1,0 +1,19 @@
+<h1>Your booking  details with <%= @booking.eatery.name %></h1>
+
+<%= image_tag @booking.eatery.image, alt: @booking.eatery.name, class: 'booking.eatery_show_img' %>
+
+<h2>Number of people</h2>
+<p><%= @booking.people_number %></p>
+
+<h2>Phone number</h2>
+<p><%= @booking.phone %></p>
+
+<h2>Email</h2>
+<p><%= @booking.email %></p>
+
+<h2>Date and Time</h2>
+<p><%= @booking.time %></p>
+
+<%= link_to 'Edit Booking', edit_booking_path %>
+<%= link_to 'Delete Booking', booking_path(@booking.id), method: 'delete' %>
+

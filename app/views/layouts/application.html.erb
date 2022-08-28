@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Famish</title>
+    <title>Hangar</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,41 @@
   </head>
 
   <body>
+    <footer>
+      <h1>HANGAR</h1>
+      <p>A place where hangouts happens</p>
+    </footer>
+
+    <nav>
+      <% if @current_user.present? %>
+        Welcome, <%= @current_user.name %>
+        |
+        <%= link_to 'Profile Detail', user_path(@current_user.id) %>
+        |
+        <%= link_to 'Logout', login_path, method: 'delete' %>
+        |
+        <%= link_to 'Browse Bookings', bookings_path %>
+        |
+        <%= link_to 'Make Booking', new_booking_path %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+        |
+        <%= link_to 'Sign Up', new_user_path %>
+      <% end %>
+
+      <%= link_to 'Home', root_path %>
+      
+      <%= link_to 'All Eateries', eateries_path %>
+      
+
+      <% if @current_user.present? && @current_user.admin == true %>
+
+      <%= link_to 'Add Eatery', new_eatery_path %>
+
+      <% end %>
+      
+    </nav>
+    
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,20 @@
+<%= form_with model: @booking, local: true do |f| %>
+
+    <h2><%= f.label :eatery_id, 'Eatery Name' %><h2>
+    <p><%= f.collection_select :eatery_id, Eatery.all, :id, :name, include_blank: true %></p>
+
+    <h2><%= f.label :people_number %><h2>
+    <p><%= f.number_field :people_number %></p>
+
+    <h2><%= f.label :phone %><h2>
+    <p><%= f.text_field :phone %></p>
+
+    <h2><%= f.label :email %><h2>
+    <p><%= f.text_field :email %></p>
+
+    <h2><%= f.label :time %><h2>
+    <p><%= f.datetime_field :time %></p>
+
+    <%= f.submit %>
+
+<% end %>

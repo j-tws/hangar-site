@@ -1,0 +1,25 @@
+<h2>Account Details for <%= @user.name %></h2>
+
+<%= image_tag @user.image, alt: @user.name, class: 'user_img' %>
+
+<h2>Name</h2>
+<p><%= @user.name %></p>
+
+<h2>Email</h2>
+<p><%= @user.email %></p>
+
+<h2>Phone Number</h2>
+<p><%= @user.phone %></p>
+
+<%= link_to 'Edit Account Details', edit_user_path(@user.id) %>
+<%= link_to 'Delete Account', user_path(@user.id), method: 'delete' %>
+
+<h2>Your Bookings</h2>
+
+<% @user.bookings.each do |booking| %>
+
+    <%= image_tag booking.eatery.image, alt: 'acc_booking_img', class: 'acc_booking_img' %>
+    <p><%= booking.eatery_name %></p>
+    <p><%= link_to 'View Booking Details', booking_path(booking.id) %></p>
+
+<% end %>

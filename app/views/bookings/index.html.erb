@@ -1,0 +1,8 @@
+<h2>All Bookings</h2>
+
+<% @bookings.each do |booking| %>
+
+    <%= link_to image_tag(booking.eatery.image, alt: booking.eatery.name, class: 'booking_index_img'), booking_path(booking.id) %>
+<p><%= booking.eatery.name %></p>
+
+<% end %>

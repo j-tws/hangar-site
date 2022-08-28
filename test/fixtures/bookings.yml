@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eatery_name: MyString
+  people_number: 1
+  phone: MyString
+  email: MyString
+  time: 2022-08-26 22:47:59
+  date: 2022-08-26
+
+two:
+  eatery_name: MyString
+  people_number: 1
+  phone: MyString
+  email: MyString
+  time: 2022-08-26 22:47:59
+  date: 2022-08-26
