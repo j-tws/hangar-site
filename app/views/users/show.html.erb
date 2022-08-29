@@ -18,8 +18,17 @@
 
 <% @user.bookings.each do |booking| %>
 
-    <%= image_tag booking.eatery.image, alt: 'acc_booking_img', class: 'acc_booking_img' %>
+    <%= image_tag booking.eatery.image, alt: booking.eatery.name, class: 'acc_booking_img' %>
     <p><%= booking.eatery_name %></p>
     <p><%= link_to 'View Booking Details', booking_path(booking.id) %></p>
+
+<% end %>
+
+<h2>Your created eateries</h2>
+
+<% @user.eateries.each do |eatery| %>
+
+    <%= link_to image_tag(eatery.image, alt: eatery.name, class: 'admin_eatery_img'), eatery_path(eatery.id) %>
+    <p><%= eatery.name %></p>
 
 <% end %>

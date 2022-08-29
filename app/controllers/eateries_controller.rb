@@ -1,5 +1,5 @@
 class EateriesController < ApplicationController
-  before_action :check_if_admin, except: [:index, :show]
+  before_action :check_if_admin, except: [:index, :show, :eatery_type_index]
 
   def new
     @eatery = Eatery.new
@@ -7,18 +7,36 @@ class EateriesController < ApplicationController
 
   def create
 
-    Eatery.create eatery_params
+    # raise 'hel'
+    # Only admins can create eatery and this eatery only belong to the logged admin
+    @eatery = Eatery.new eatery_params
 
-    redirect_to eateries_path
+    @eatery.eatery_types << EateryType.find(params[:eatery_type_ids])
+
+    @eatery.user_id = @current_user.id
+    @eatery.save #equivalent to .create aka DB insert
+
+    if @eatery.persisted?
+      redirect_to eateries_path
+    else 
+      render :new
+    end
 
   end
 
   def index
     @eateries = Eatery.all
+    @eatery_types = EateryType.all
+  end
+
+  def eatery_type_index
+    @eatery_type = EateryType.find params[:id]
   end
 
   def show
     @eatery = Eatery.find params[:id]
+    @booking = Booking.new
+    @booking.eatery_id = params[:id]
   end
 
   def edit
@@ -43,6 +61,10 @@ class EateriesController < ApplicationController
   
   def eatery_params
     params.require(:eatery).permit(:name, :cuisine, :location, :price_range, :description, :image)
+  end
+
+  def booking_params
+    params.require(:booking).permit(:eatery_id, :people_number, :phone, :email, :time)
   end
 
 end

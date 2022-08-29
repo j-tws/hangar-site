@@ -1,9 +1,17 @@
 <%= form_with model: @booking, local: true do |f| %>
 
+    <%= f.hidden_field :eatery_id, :value => params[:id] %>
+ 
+    <!--
+    <h2><%= f.label :eatery_id %><h2>
+    <p><%= f.number_field :eatery_id, value: params[:id] %></p>
+    -->
     
+
+    <!--
     <h2><%= f.label :eatery_id, 'Eatery Name' %><h2>
     <p><%= f.collection_select :eatery_id, Eatery.all, :id, :name, include_blank: true %></p>
-    
+    -->
 
     <h2><%= f.label :people_number %><h2>
     <p><%= f.number_field :people_number %></p>

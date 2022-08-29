@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :check_if_logged_in, except: [:new, :create]
+  before_action :check_if_admin, except: [:new, :create, :show]
+
 
   def new
     @user = User.new
@@ -26,12 +28,11 @@ class UsersController < ApplicationController
   end
 
   def index
+    @users = User.all
   end
 
   def show
     @user = User.find params[:id]
-
-    check_if_same_user @user.id
 
   end
 

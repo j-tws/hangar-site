@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   delete '/login' => 'session#destroy'
 
+  #Seperate routes of index for each eatery type
+  get '/eaterytype/:id' => 'eateries#eatery_type_index', as: 'eatery_type'
+
+
   resources :eateries, :bookings, :users
+
 
 end

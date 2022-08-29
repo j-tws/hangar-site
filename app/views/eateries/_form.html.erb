@@ -18,6 +18,16 @@
     <h2><%= f.label :image %><h2>
     <p><%= f.text_field :image %></p>
 
+    <h2>Eatery Type</h2>
+    <% EateryType.all.each do |type| %>
+    <label>
+        <%= check_box_tag 'eatery_type_ids[]', type.id  %>
+        <%= type.name %>
+    </label>
+    <br>
+
+    <% end %>
+
     <%= f.submit %>
 
 <% end %>

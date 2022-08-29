@@ -7,4 +7,7 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :bookings
+    has_many :eateries
+    has_many :enquiries
+    
 end

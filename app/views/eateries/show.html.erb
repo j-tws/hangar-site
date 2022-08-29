@@ -5,7 +5,7 @@
 <h2>Venue Type</h2>
 <% @eatery.eatery_types.each do |type| %>
 
-    <p><%= type.name %></p>
+    <p><%= link_to type.name, eatery_type_path(type.id) %></p>
 
 <% end %>
 
@@ -24,4 +24,10 @@
 <%= link_to 'Edit Eatery', edit_eatery_path %>
 <%= link_to 'Delete Eatery', eatery_path(@eatery.id), method: 'delete' %>
 
+<!--
 <%= link_to 'Make Booking', new_booking_path %>
+-->
+
+<h2>Make booking here</h2>
+
+<%= render partial: 'bookingform' %>
