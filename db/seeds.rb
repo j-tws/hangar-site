@@ -247,3 +247,5 @@ en5 = Enquiry.create!(
     user_id: u3.id
 )
 
+puts "created #{Enquiry.count} enquiries"
+

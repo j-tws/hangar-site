@@ -23,26 +23,32 @@
         |
         <%= link_to 'Logout', login_path, method: 'delete' %>
         |
-        <%= link_to 'Browse Bookings', bookings_path %>
+        
         |
         <%= link_to 'Make Booking', new_booking_path %>
+        |
+        <% unless @current_user.admin %>
+        <%= link_to 'Enquiry & Support', enquiries_path(@current_user.id) %>
+        <% end %>
       <% else %>
         <%= link_to 'Login', login_path %>
         |
         <%= link_to 'Sign Up', new_user_path %>
       <% end %>
-
+      |
       <%= link_to 'Home', root_path %>
-      
+      |
       <%= link_to 'All Eateries', eateries_path %>
       
 
       <% if @current_user.present? && @current_user.admin == true %>
-
+      |
       <%= link_to 'Add Eatery', new_eatery_path %>
+      |
+      <%= link_to 'Browse Bookings', bookings_path %>
 
       <% end %>
-
+      |
       <%= link_to 'All Accounts', users_path %>
 
     </nav>

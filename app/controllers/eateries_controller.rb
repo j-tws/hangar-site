@@ -9,7 +9,7 @@ class EateriesController < ApplicationController
 
     # raise 'hel'
     # Only admins can create eatery and this eatery only belong to the logged admin
-    @eatery = Eatery.new eatery_params
+    @eatery = Eatery.create eatery_params
 
     @eatery.eatery_types << EateryType.find(params[:eatery_type_ids])
 

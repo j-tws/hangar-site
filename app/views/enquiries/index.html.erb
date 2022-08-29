@@ -1,0 +1,13 @@
+<h2>Your enquiries</h2>
+
+<% @enquiries.each do |en| %>
+
+<div class="query_post">
+    <%= image_tag @user.image, class: 'post_img' %>
+    <%= en.query %>
+    <a href="">Delete post</a>
+</div>
+
+<% end %>
+
+<%= render partial: 'form' %>

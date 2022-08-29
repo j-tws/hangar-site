@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Source+Sans+Pro&display=swap');
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 80vw;
+}
+
+h1, h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.eatery_index_img, .booking_index_img {
+    width: 30vw;
+}
+
+.eatery_show_img{
+    width: 50vw;
+}
+
+.query_post {
+    border: 1px solid rgb(106, 106, 106);
+    border-radius: 10px;
+    width: 50vw;
+    padding: 10px 50px 50px 40px;
+    margin: 10px;
+}
+
+.post_img {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    right: 20px;
+}
