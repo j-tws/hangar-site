@@ -224,27 +224,37 @@ Enquiry.destroy_all
 
 en1 = Enquiry.create!(
     query: "Please add more eateries",
-    user_id: u1.id
+    user_id: u1.id,
+    response: "I've already added"
 )
 
 en2 = Enquiry.create!(
     query: "Please help me cancel my booking",
-    user_id: u2.id
+    user_id: u2.id,
+    response: "Done already canceled"
 )
 
 en3 = Enquiry.create!(
     query: "Please add my favourite bar called this",
-    user_id: u3.id
+    user_id: u3.id,
+    response: "Already added"
 )
 
 en4 = Enquiry.create!(
     query: "Please help me change my booking",
-    user_id: u2.id
+    user_id: u2.id,
+    response: "Already changed"
 )
 
 en5 = Enquiry.create!(
     query: "Please add my favourite cafe to the list",
-    user_id: u3.id
+    user_id: u3.id,
+    response: "Done. Already added"
+)
+
+en6 = Enquiry.create!(
+    query: "Please help me delete my account",
+    user_id: u1.id,
 )
 
 puts "created #{Enquiry.count} enquiries"

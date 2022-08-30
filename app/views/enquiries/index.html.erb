@@ -1,13 +1,53 @@
+<% if @current_user.present? && @current_user.admin == true %>
+
+<h2>All enquiries</h2>
+
+    <% @enquiries.each do |en| %>
+
+        <div class="query_post">
+            <%= image_tag en.user.image, class: 'post_img' %>
+            <%= en.query %>
+
+            <p><em>
+            Admin response: <%= en.response %>
+            </em></p>
+
+            <% if en.response == nil %>
+                <%= link_to 'Add Response', edit_enquiry_path(en.id) %>
+            <% end %>
+
+        </div>
+
+    <% end %>
+
+<% elsif @current_user.present? && @current_user.admin == false %>
+
 <h2>Your enquiries</h2>
 
-<% @enquiries.each do |en| %>
+    <% @user_enquiries.each do |en| %>
 
-<div class="query_post">
-    <%= image_tag @user.image, class: 'post_img' %>
-    <%= en.query %>
-    <a href="">Delete post</a>
-</div>
+        <div class="query_post">
+            <%= image_tag en.user.image, class: 'post_img' %>
+            <%= en.query %>
+
+            <p><em>
+                Admin response: <%= en.response %>
+            </em></p>
+        </div>
+
+
+    <% end %>
+
+    <%= form_with model: @enquiry, local: true do |f| %>
+
+    <h2><%= f.label :query, 'Submit a query here' %><h2>
+    <p><%= f.text_area :query, cols: 70 , rows: 8 %></p>
+
+    <%= f.submit %>
 
 <% end %>
 
-<%= render partial: 'form' %>
+<% end %>
+
+
+
