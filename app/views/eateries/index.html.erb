@@ -1,15 +1,22 @@
-<h2>All eateries / bars</h2>
 
-<p><strong>Sort by:</strong>
+<h2 class="page_header">ALL EATERIES</h2>
+
+<p id="sort_word"><strong>SORT BY</strong></p>
 <% @eatery_types.each do |type| %>
 
-    <p><%= link_to type.name, eatery_type_path(type.id) %></p>
+    <%= link_to type.name, eatery_type_path(type.id), class: "sort_tag" %>
 
 <% end %>
+<br>
 
-<% @eateries.each do |eatery| %>
+<div class="eatery_grid">
+    <% @eateries.each do |eatery| %>
 
-<%= link_to cl_image_tag(eatery.image, alt: eatery.name, class: 'eatery_index_img'), eatery_path(eatery.id) %>
-<p><%= eatery.name %></p>
+        <div class="eatery_show_box">
+            <%= link_to cl_image_tag(eatery.image, alt: eatery.name, class: 'eatery_index_img'), eatery_path(eatery.id) %>
+            <p><%= eatery.name %></p>
+        </div>
 
-<% end  %>
+    <% end  %>
+</div>
+

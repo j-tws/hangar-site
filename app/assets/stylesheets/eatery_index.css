@@ -1,0 +1,36 @@
+.eatery_show_box {
+    display: inline-block;
+    margin: 30px 20px;
+}
+
+.eatery_show_box {
+    font-size: 15pt;
+}
+
+.eatery_index_img, .booking_index_img {
+    width: 25vw;
+    min-width: 200px;
+    border-radius: 10px;
+}
+
+.eatery_show_img{
+    width: 50vw;
+}
+
+#sort_word {
+    font-size: 18pt;
+}
+
+.sort_tag {
+    text-decoration: none;
+    color: black;
+    font-size: 15pt;
+    margin: 30px;
+    border: 2px solid rgb(178, 178, 178);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.eatery_grid {
+    margin-top: 40px;
+}

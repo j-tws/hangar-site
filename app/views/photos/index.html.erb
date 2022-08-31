@@ -5,7 +5,7 @@
 
 <% @photos.each do |photo| %>
     <div class="photo_box">
-    <%= cl_image_tag photo.url, alt: photo.name, class: 'photo_index' %>
+    <%= cl_image_tag(photo.url, alt: photo.name, class: 'photo_index') %>
     <p><%= photo.name %></p>
     <p><%= photo.description %></p>
 

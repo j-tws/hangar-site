@@ -1,9 +1,15 @@
-<h2>Search Results for Eateries</h2>
+<h2 class="page_header">Search Results for Eateries</h2>
 
-<% @results_eateries.each do |result| %>
-    <%= link_to image_tag(result.image, alt: result.name, class: 'search_eatery_img'), eatery_path(result.id) %>
-    <p><%= result.name %></p>
-<% end %>
+<div class="eatery_grid">
+    <% @results_eateries.each do |result| %>
+
+        <div class="eatery_show_box">
+            <%= link_to image_tag(result.image, alt: result.name, class: 'eatery_index_img'), eatery_path(result.id) %>
+            <p><%= result.name %></p>
+        
+        </div>
+    <% end %>
+</div>
 
 <% if @current_user.present? %>
     <h2>Search Results for your Bookings</h2>

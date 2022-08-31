@@ -1,40 +1,57 @@
-<h1><%= @eatery.name %></h1>
+
+<h2 class="page_header"><%= @eatery.name %></h2>
+
+<div class="show_box">
 
 <%= cl_image_tag @eatery.image, alt: @eatery.name, class: 'eatery_show_img'  %>
 
-<h2>Venue Type</h2>
-<% @eatery.eatery_types.each do |type| %>
+    <div class="details">
+    <h2>Venue Type</h2>
+        <% @eatery.eatery_types.each do |type| %>
 
-    <p><%= link_to type.name, eatery_type_path(type.id) %></p>
+            <p><%= link_to type.name, eatery_type_path(type.id) %></p>
 
-<% end %>
+        <% end %>
 
-<h2>Location</h2>
-<p><%= @eatery.location %></p>
+        <h2>Location</h2>
+        <p><%= @eatery.location %><p>
 
-<h2>Cuisine</h2>
-<p><%= @eatery.cuisine %></p>
+        <h2>Cuisine</h2>
+        <p><%= @eatery.cuisine %></p>
 
-<h2>Price</h2>
-<p>$<%= @eatery.price_range %> pp</p>
+        <h2>Price</h2>
+        <p>$<%= @eatery.price_range %> pp</p>
 
-<h2>Description</h2>
-<p><%= @eatery.description %></p>
+        <h2>Description</h2>
+        <p><%= @eatery.description %></p>
+    </div>
 
-<h2>Gallery</h2>
-
+</div>
 
 <h2><%= link_to 'View Menu here', @eatery.menu %></h2>
 
-<%= link_to 'Edit Eatery', edit_eatery_path(@eatery.id) %>
-<%= link_to 'Delete Eatery', eatery_path(@eatery.id), method: 'delete' %>
+<div class="eatery_gallery">
+    <% @eatery.photos.each do |photo| %>
 
+        <div class="eatery_gallery_box">
+            <%= cl_image_tag photo.url, name: photo.name, class: 'eatery_gallery_img' %>
+            <p><%= photo.description %></p>
+        </div>
+
+    <% end %>
+</div>
+
+<% if @current_user.present? && @current_user.admin %>
+    <%= link_to 'Edit Eatery', edit_eatery_path(@eatery.id) %>
+    <%= link_to 'Delete Eatery', eatery_path(@eatery.id), method: 'delete' %>
+<% end %>
+<hr>
 <!--
 <%= link_to 'Make Booking', new_booking_path %>
 -->
 <a name="form"></a>
 
-<h2>Make booking here</h2>
+<h2 class="page_header">MAKE BOOKING HERE</h2>
 
 <% if @booking.errors.any? %>
     <strong>Please correct the following errors:</strong>
@@ -48,23 +65,24 @@
     </script>
 <% end %>
 
+<div id="booking_form">
+    <%= form_with model: @booking, local: true do |f| %>
 
-<%= form_with model: @booking, local: true do |f| %>
+        <%= f.hidden_field :eatery_id, :value => params[:id] %>
 
-    <%= f.hidden_field :eatery_id, :value => params[:id] %>
+        <h2><%= f.label :people_number %><h2>
+        <p><%= f.number_field :people_number, in: 1..12 %></p>
 
-    <h2><%= f.label :people_number %><h2>
-    <p><%= f.number_field :people_number, in: 1..12 %></p>
+        <h2><%= f.label :phone %><h2>
+        <p><%= f.text_field :phone %></p>
 
-    <h2><%= f.label :phone %><h2>
-    <p><%= f.text_field :phone %></p>
+        <h2><%= f.label :email %><h2>
+        <p><%= f.email_field :email %></p>
 
-    <h2><%= f.label :email %><h2>
-    <p><%= f.email_field :email %></p>
+        <h2><%= f.label :time %><h2>
+        <p><%= f.datetime_field :time, min: Date.today %></p>
 
-    <h2><%= f.label :time %><h2>
-    <p><%= f.datetime_field :time, min: Date.today %></p>
+        <%= f.submit %>
 
-    <%= f.submit %>
-
-<% end %>
+    <% end %>
+</div>

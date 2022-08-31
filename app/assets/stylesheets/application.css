@@ -16,10 +16,14 @@
  */
 
  .simple-calendar {
-
+    width: 70vw;
+    margin: 0 auto;
+    margin-bottom: 150px;
  }
 
-.day {}
+.day {
+
+}
 
 .wday-0 {
     color: red

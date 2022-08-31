@@ -1,21 +1,24 @@
-<h2>Account Details for <%= @user.name %></h2>
+<h2 class="page_header">Account Details for <%= @user.name %></h2>
 
-<%= image_tag @user.image, alt: @user.name, class: 'user_img' %>
+<div id="user_details">
+    <%= image_tag @user.image, alt: @user.name, class: 'user_img' %>
 
-<h2>Name</h2>
-<p><%= @user.name %></p>
+    <h2>Name</h2>
+    <p><%= @user.name %></p>
 
-<h2>Email</h2>
-<p><%= @user.email %></p>
+    <h2>Email</h2>
+    <p><%= @user.email %></p>
 
-<h2>Phone Number</h2>
-<p><%= @user.phone %></p>
+    <h2>Phone Number</h2>
+    <p><%= @user.phone %></p>
+    <br>
 
-<%= link_to 'Edit Account Details', edit_user_path(@user.id) %>
-<%= link_to 'Delete Account', user_path(@user.id), method: 'delete' %>
+    <%= link_to 'Edit Account Details', edit_user_path(@user.id) %>
+    <%= link_to 'Delete Account', user_path(@user.id), method: 'delete' %>
 
-<h2>Your Bookings</h2>
+</div>
 
+<!--
 <% @user.bookings.each do |booking| %>
 
     <%= cl_image_tag booking.eatery.image, alt: booking.eatery.name, class: 'acc_booking_img' %>
@@ -23,6 +26,8 @@
     <p><%= link_to 'View Booking Details', booking_path(booking.id) %></p>
 
 <% end %>
+-->
+<h2 class="page_header">Your Calendar Bookings</h2>
 
 <%= month_calendar(events: @bookings, attribute: :time) do |date, bookings| %>
   <%= date.day %>
@@ -35,12 +40,13 @@
 
 <% end %>
 
+<% if @current_user.admin %>
+    <h2>Your created eateries</h2>
 
-<h2>Your created eateries</h2>
+    <% @user.eateries.each do |eatery| %>
 
-<% @user.eateries.each do |eatery| %>
+        <%= link_to image_tag(eatery.image, alt: eatery.name, class: 'admin_eatery_img'), eatery_path(eatery.id) %>
+        <p><%= eatery.name %></p>
 
-    <%= link_to image_tag(eatery.image, alt: eatery.name, class: 'admin_eatery_img'), eatery_path(eatery.id) %>
-    <p><%= eatery.name %></p>
-
+    <% end %>
 <% end %>

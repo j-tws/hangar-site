@@ -1,11 +1,13 @@
-<h2>All <%= @eatery_type.name %></h2>
+<h2 class="page_header">All <%= @eatery_type.name %></h2>
 
-<% @eatery_type.eateries.each do |eatery| %>
+<div class="eatery_grid">
+    <% @eatery_type.eateries.each do |eatery| %>
 
+    <div class="eatery_show_box">
+        <%= link_to image_tag(eatery.image, alt: eatery.name, class: 'eatery_index_img'), eatery_path(eatery.id) %>
+        <p><%= eatery.name %></p>
+    </div>
 
-<%= link_to image_tag(eatery.image, alt: eatery.name, class: 'eatery_type_img'), eatery_path(eatery.id) %>
-<p><%= eatery.name %></p>
-
-
-<% end %>
+    <% end %>
+</div>
 

@@ -1,0 +1,13 @@
+#user_details p{
+    margin-top: -15px;
+}
+
+#user_details a {
+    text-decoration: none;
+    color: black;
+    font-size: 15pt;
+    margin: 30px;
+    border: 2px solid rgb(178, 178, 178);
+    padding: 7px 15px;
+    border-radius: 5px;
+}

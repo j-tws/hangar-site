@@ -1,0 +1,43 @@
+.eatery_show_img {
+    border-radius: 15px;
+    width: 40vw;
+    max-width: 1500px;
+}
+
+.details {
+    width: 40vw;
+    margin: 0 auto;
+}
+
+.eatery_gallery_box {
+    display: inline-block;
+    margin: 3px;
+}
+
+.eatery_gallery_box p {
+    margin: 0px;
+}
+
+.eatery_gallery_img {
+    width: 20vw;
+    border-radius: 7px;
+}
+
+.details p {
+    margin-top: -15px;
+}
+
+#booking_form input {
+    height: 20px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    width: 200px;
+}
+
+#booking_form h2 {
+    margin-bottom: -30px;
+}
+
+#booking_form {
+    margin-bottom: 100px;
+}

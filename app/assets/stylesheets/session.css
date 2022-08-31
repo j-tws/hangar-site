@@ -1,0 +1,29 @@
+#login h2 {
+    font-size: 30pt;
+}
+
+#login input{
+    height: 25px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+#login {
+    margin-bottom: 150px;
+}
+
+#login_submit {
+    width: 100px;
+}
+
+#email_field {
+    margin: 30px;
+}
+
+#password_field {
+    margin-bottom: 50px;
+}
+
+#login_error {
+    color: red;
+}
