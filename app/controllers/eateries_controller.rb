@@ -9,9 +9,23 @@ class EateriesController < ApplicationController
 
     # raise 'hel'
     # Only admins can create eatery and this eatery only belong to the logged admin
-    @eatery = Eatery.create eatery_params
+    @eatery = Eatery.new eatery_params
 
     @eatery.eatery_types << EateryType.find(params[:eatery_type_ids])
+
+    #check if a file was uploaded via the form, and if so,
+    #forward that file onto cloudinary,
+    #and then save the file ID it gives us back, into the
+    #mixtape object
+
+    if params[:eatery][:image].present?
+      # Upload to Cloudinary and capture the response, which includes a new ID
+      response = Cloudinary::Uploader.upload params[:eatery][:image]
+      # p response # view in iTerm/terminal
+
+      # set the ID into the model object to save
+      @eatery.image = response["public_id"]
+    end
 
     @eatery.user_id = @current_user.id
     @eatery.save #equivalent to .create aka DB insert
@@ -69,10 +83,17 @@ class EateriesController < ApplicationController
       return
     else
       @param = params[:search].downcase
-      @results = Eatery.all.where("lower(name) LIKE :search", search: "%#{@param}%")
-    end
+      #@results = Eatery.all.where("lower(name) LIKE :search", search: "%#{@param}%")
+      @results_eateries = Eatery.where("lower(name) LIKE :search", search: "%#{@param}%")
 
-  end
+      #how to get results only for @current_user bookings
+      if @current_user.present?
+        @results_bookings = @current_user.search_bookings(@param)
+      end #@current user check
+      
+    end #else (search not blank)
+
+  end #search method
 
   private
   

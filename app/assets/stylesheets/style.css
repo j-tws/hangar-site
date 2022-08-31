@@ -2,11 +2,21 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    width: 80vw;
+    text-align: center;
+    border: 1px solid red;
 }
 
 h1, h2 {
     font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+    font-size: 60pt;
+    margin-bottom: 20px
+}
+
+footer p {
+    font-size: 25pt;
 }
 
 .eatery_index_img, .booking_index_img {
@@ -31,4 +41,50 @@ h1, h2 {
     height: 50px;
     object-fit: cover;
     right: 20px;
+}
+
+nav {
+    position: relative;
+    border: 1px solid red;
+}
+
+.search_input {
+    position: relative;
+    border: 1px solid red;
+    display: inline-block;
+}
+
+.search_input {
+    position: relative;
+    border: 1px solid red;
+    display: inline-block;
+}
+
+#login h2 {
+    font-size: 30pt;
+}
+
+#login h3 {
+    margin: 10px 0;
+}
+
+#login input{
+    height: 25px;
+}
+
+#login button {
+    margin-bottom: 50px;
+}
+
+.photo_index {
+    width: 400px;
+    height: 250px;
+}
+
+.photo_box {
+    display: inline-block;
+}
+
+#new_photo {
+    display: block;
 }

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/search' => 'eateries#search'
 
-  resources :eateries, :bookings, :users, :enquiries
+  get '/photos/:id/delete' => 'photos#destroy', as: 'destroy_photo'
+
+  resources :eateries, :bookings, :users, :enquiries, :photos
 
 end

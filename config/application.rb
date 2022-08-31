@@ -28,5 +28,7 @@ module Famish
     # the framework and any gems in your application.
     config.beginning_of_week = :sunday
   end
+
+
 end
 

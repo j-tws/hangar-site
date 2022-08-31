@@ -14,4 +14,8 @@ class User < ApplicationRecord
 
     # how to give a default profile pic if user dont upload image?
     
+    def search_bookings(query)
+        self.bookings.where("eatery_name ILIKE ?", "%#{query}%")
+    end
+
 end

@@ -184,6 +184,18 @@ e7 = Eatery.create!(
 )
 
 e8 = Eatery.create!(
+    name: "Vue de Monde",
+    cuisine: "Modern Contemporary",
+    location: "Melbourne",
+    price_range: 500,
+    description: "Given Vue de Monde's reputation, a meal at the restaurant comes with expectations nearly as high as its lofty location. Steering away from its initial European-leaning beginnings towards an offering more informed by native Australian ingredients and techniques, it makes dining at Vue is as much an experience as it is a meal. ",
+    image: "https://cdn.broadsheet.com.au/cache/cb/57/cb57460763dfdb5f5ba1abd2859197f1.jpg",
+    user_id: u4.id,
+    state_id: s2.id,
+    menu: "https://i.imgur.com/tqoJAfV.jpg"
+)
+
+e9 = Eatery.create!(
     name: "Old Mate's Place",
     cuisine: "Hearty snacks and craft alcohols",
     location: "Sydney",
@@ -205,7 +217,8 @@ e4.eatery_types << bar
 e5.eatery_types << restaurant << bar
 e6.eatery_types << restaurant << bar
 e7.eatery_types << cafe
-e8.eatery_types << bar
+e8.eatery_types << restaurant << bar << cafe
+e9.eatery_types << bar
 
 #####################################################
 
@@ -322,3 +335,197 @@ puts "created #{Enquiry.count} enquiries"
 
 ########################################################
 
+print "Creating photos..."
+
+Photo.destroy_all
+
+p1 = Photo.create!(
+    name: "Belle photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933324/Project%201%20Images/belle_photo_1_ypywf5.jpg",
+    description: "The infamous Belle's fried chicken",
+    eatery_id: e1.id
+)
+
+p2 = Photo.create!(
+    name: "Belle photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933324/Project%201%20Images/belle_photo_2_op2lle.jpg",
+    description: "Ned Whiskey, Coke, Plum Kombucha",
+    eatery_id: e1.id
+)
+
+p3 = Photo.create!(
+    name: "Belle photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933324/Project%201%20Images/belle_photo_3_ptbw3e.jpg",
+    description: "A table of goodness",
+    eatery_id: e1.id
+)
+
+p4 = Photo.create!(
+    name: "Leonardo photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/leonardo_photo_1_t2liqw.jpg",
+    description: "Pepperoni Pizza",
+    eatery_id: e2.id
+)
+
+p5 = Photo.create!(
+    name: "Leonardo photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/leonardo_photo_2_l7br2z.jpg",
+    description: "Anchovy Crostini",
+    eatery_id: e2.id
+)
+
+p6 = Photo.create!(
+    name: "Leonardo photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/leonardo_photo_3_ozszsz.jpg",
+    description: "Penne Pepperonata",
+    eatery_id: e2.id
+)
+
+p7 = Photo.create!(
+    name: "Greens photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/greens_photo_1_ho7ezo.jpg",
+    description: "Green's Popular Breakfast Stack",
+    eatery_id: e3.id
+)
+
+p8 = Photo.create!(
+    name: "Greens photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/greens_photo_2_agoidf.jpg",
+    description: "Breakfast Burger",
+    eatery_id: e3.id
+)
+
+p9 = Photo.create!(
+    name: "Greens photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/greens_photo_3_ztxzsz.jpg",
+    description: "House made Sausage Roll",
+    eatery_id: e3.id
+)
+
+p10 = Photo.create!(
+    name: "Boilermaker photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933324/Project%201%20Images/boilermaker_photo_1_c1betg.jpg",
+    description: "Boilermakers - whiskey and beer on the go",
+    eatery_id: e4.id
+)
+
+p11 = Photo.create!(
+    name: "Boilermaker photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933324/Project%201%20Images/boilermaker_photo_2_mpcikg.jpg",
+    description: "Ploughman's paddle",
+    eatery_id: e4.id
+)
+
+p12 = Photo.create!(
+    name: "Boilermaker photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933324/Project%201%20Images/boilermaker_photo_3_lfbgpx.jpg",
+    description: "Your unconventional whiskey",
+    eatery_id: e4.id
+)
+
+p13 = Photo.create!(
+    name: "Builders photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933325/Project%201%20Images/builder_photo_1_rmsreq.jpg",
+    description: "Chicken Parma",
+    eatery_id: e5.id
+)
+
+p14 = Photo.create!(
+    name: "Builders photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933325/Project%201%20Images/builder_photo_2_xw1ikr.jpg",
+    description: "Fish Pie",
+    eatery_id: e5.id
+)
+
+p15 = Photo.create!(
+    name: "Builders photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933325/Project%201%20Images/builder_photo_3_nqpuhm.jpg",
+    description: "A table of happiness",
+    eatery_id: e5.id
+)
+
+p16 = Photo.create!(
+    name: "Quay photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/quay_photo_1_x88qjy.jpg",
+    description: "White coral, feijoa, white chocolate, coconut",
+    eatery_id: e6.id
+)
+
+p17 = Photo.create!(
+    name: "Quay photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/quay_photo_2_ebybak.jpg",
+    description: "Pea garden, miso, anchovy",
+    eatery_id: e6.id
+)
+
+p18 = Photo.create!(
+    name: "Quay photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/quay_photo_3_repcsr.jpg",
+    description: "Maremma duck, slow-cooked carrots, red dates, karkalla",
+    eatery_id: e6.id
+)
+
+p19 = Photo.create!(
+    name: "Bourke photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933325/Project%201%20Images/bourke_photo_1_z5m8zw.jpg",
+    description: "Freshly Baked Breads",
+    eatery_id: e7.id
+)
+
+p20 = Photo.create!(
+    name: "Bourke photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933325/Project%201%20Images/bourke_photo_2_lpjf7o.jpg",
+    description: "Sausage Rolls",
+    eatery_id: e7.id
+)
+
+p21 = Photo.create!(
+    name: "Bourke photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933325/Project%201%20Images/bourke_photo_3_v0dig0.jpg",
+    description: "Various flavoured muffins",
+    eatery_id: e7.id
+)
+
+p22 = Photo.create!(
+    name: "Vue photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/vue_photo_1_foyjc9.jpg",
+    description: "Luscious chocolate souffle",
+    eatery_id: e8.id
+)
+
+p23 = Photo.create!(
+    name: "Vue photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/vue_photo_2_c4apfk.jpg",
+    description: "Heirloom Tomatoes and Mirabelle Plum",
+    eatery_id: e8.id
+)
+
+p24 = Photo.create!(
+    name: "Vue photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933328/Project%201%20Images/vue_photo_3_khvudx.jpg",
+    description: "Western Australia Marron 'Curry' ",
+    eatery_id: e8.id
+)
+
+p25 = Photo.create!(
+    name: "Oldmate photo 1",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/oldmate_photo_1_pqvamv.jpg",
+    description: "Customizable cocktail",
+    eatery_id: e9.id
+)
+
+p26 = Photo.create!(
+    name: "Oldmate photo 2",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933326/Project%201%20Images/oldmate_photo_2_dquqfi.jpg",
+    description: "Daiquiri",
+    eatery_id: e9.id
+)
+
+p27 = Photo.create!(
+    name: "Oldmate photo 3",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/oldmate_photo_3_yyplin.jpg",
+    description: "The alcohol shelf",
+    eatery_id: e9.id
+)
+
+puts "created #{Photo.count} photos"

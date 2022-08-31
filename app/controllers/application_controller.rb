@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     #Because this 'before_action' is set up in the parent class 'Application controller' which every controller inherits from, it will run the method automatically before any controller is run
 
     before_action :fetch_user 
+    # before_action Date.beginning_of_week 
 
     def fetch_user
         #check if current user is logged in

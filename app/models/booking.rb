@@ -7,4 +7,6 @@ class Booking < ApplicationRecord
     validates :email, presence: true
     validates :time, presence: true
 
+   
+
 end

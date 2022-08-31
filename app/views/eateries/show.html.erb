@@ -1,6 +1,6 @@
 <h1><%= @eatery.name %></h1>
 
-<%= image_tag @eatery.image, alt: @eatery.name, class: 'eatery_show_img'  %>
+<%= cl_image_tag @eatery.image, alt: @eatery.name, class: 'eatery_show_img'  %>
 
 <h2>Venue Type</h2>
 <% @eatery.eatery_types.each do |type| %>
@@ -20,6 +20,9 @@
 
 <h2>Description</h2>
 <p><%= @eatery.description %></p>
+
+<h2>Gallery</h2>
+
 
 <h2><%= link_to 'View Menu here', @eatery.menu %></h2>
 

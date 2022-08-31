@@ -71,12 +71,12 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-  def self.search(search)
-    where("lower(eateries.name) LIKE :search OR lower(bookings.name) LIKE :search", search: "%#{search.downcase}%").uniq
-  end
+  # def self.search(search)
+  #   where("lower(eateries.name) LIKE :search OR lower(bookings.name) LIKE :search", search: "%#{search.downcase}%").uniq
+  # end
 
   private
-  
+
   def booking_params
     params.require(:booking).permit(:eatery_id, :people_number, :phone, :email, :time)
   end

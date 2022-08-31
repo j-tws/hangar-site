@@ -18,7 +18,7 @@
 
 <% @user.bookings.each do |booking| %>
 
-    <%= image_tag booking.eatery.image, alt: booking.eatery.name, class: 'acc_booking_img' %>
+    <%= cl_image_tag booking.eatery.image, alt: booking.eatery.name, class: 'acc_booking_img' %>
     <p><%= booking.eatery_name %></p>
     <p><%= link_to 'View Booking Details', booking_path(booking.id) %></p>
 

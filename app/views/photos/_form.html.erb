@@ -1,0 +1,17 @@
+<%= form_with model: @photo, local: true do |f| %>
+
+    <h2><%= f.label :eatery_id, 'Eatery Name' %></h2>
+    <p><%= f.collection_select :eatery_id, Eatery.all, :id, :name, include_blank: true %></p>
+    
+    <h2><%= f.label :name %></h2>
+    <p><%= f.text_field :name %></p>
+
+    <h2><%= f.label :description %></h2>
+    <p><%= f.text_area :description, cols: 60, rows: 5 %></p>
+
+    <h2><%= f.label :url, 'Upload photo here' %></h2>
+    <p><%= f.file_field :url %></p>
+
+    <%= f.submit %>
+
+<% end %>

@@ -55,3 +55,4 @@ end
 
 gem 'pry-rails'
 gem "simple_calendar", "~> 2.4"
+gem "cloudinary", "~> 1.23"

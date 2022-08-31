@@ -1,0 +1,17 @@
+<h2>All Gallery Photos</h2>
+
+<%= link_to 'Add New Photo', new_photo_path, id: 'new_photo' %>
+
+
+<% @photos.each do |photo| %>
+    <div class="photo_box">
+    <%= cl_image_tag photo.url, alt: photo.name, class: 'photo_index' %>
+    <p><%= photo.name %></p>
+    <p><%= photo.description %></p>
+
+    <%= link_to 'Edit Photo', edit_photo_path(photo.id) %>
+
+    <%= link_to 'Delete Photo', destroy_photo_path(photo.id) %>
+    </div>
+
+<% end %>

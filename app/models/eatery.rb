@@ -3,6 +3,7 @@ class Eatery < ApplicationRecord
     has_and_belongs_to_many :eatery_types
     belongs_to :user, optional: true
     belongs_to :state, optional: true
+    has_many :photos
 
     validates :name, presence: true
     validates :location, presence: true
