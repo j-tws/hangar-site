@@ -24,6 +24,18 @@
 
 <% end %>
 
+<%= month_calendar(events: @bookings, attribute: :time) do |date, bookings| %>
+  <%= date.day %>
+
+  <% bookings.each do |booking| %>
+
+    <%= link_to booking.eatery_name, booking_path(booking.id) %>
+    <%= booking.time %>
+    <% end %>
+
+<% end %>
+
+
 <h2>Your created eateries</h2>
 
 <% @user.eateries.each do |eatery| %>

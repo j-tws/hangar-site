@@ -35,6 +35,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
 
+    ##Calender stuff below
+    # start_date = params.fetch(:start_date, Date.today).to_date
+    @bookings = @user.bookings.where(
+      time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
   end
 
   def edit
@@ -69,6 +74,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :image)
 
   end
-
 
 end

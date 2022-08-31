@@ -14,7 +14,9 @@ class EnquiriesController < ApplicationController
     if @enquiry.persisted?
       redirect_to enquiries_path
     else
-      render:new
+      puts "========================="
+      puts @enquiry.errors.full_messages
+      render :new
     end
 
   end

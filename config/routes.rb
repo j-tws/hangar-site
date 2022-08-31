@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   #Seperate routes of index for each eatery type
   get '/eaterytype/:id' => 'eateries#eatery_type_index', as: 'eatery_type'
 
+  get '/search' => 'eateries#search'
+
   resources :eateries, :bookings, :users, :enquiries
 
 end

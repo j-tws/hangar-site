@@ -21,41 +21,46 @@
 <h2>Description</h2>
 <p><%= @eatery.description %></p>
 
-<%= link_to 'Edit Eatery', edit_eatery_path %>
+<h2><%= link_to 'View Menu here', @eatery.menu %></h2>
+
+<%= link_to 'Edit Eatery', edit_eatery_path(@eatery.id) %>
 <%= link_to 'Delete Eatery', eatery_path(@eatery.id), method: 'delete' %>
 
 <!--
 <%= link_to 'Make Booking', new_booking_path %>
 -->
+<a name="form"></a>
 
 <h2>Make booking here</h2>
+
+<% if @booking.errors.any? %>
+    <strong>Please correct the following errors:</strong>
+    <ul>
+        <% @booking.errors.full_messages.each do |e| %>
+            <li><%= e %></li>
+        <% end %>
+    </ul>
+    <script>
+        location.hash = "#form"
+    </script>
+<% end %>
+
 
 <%= form_with model: @booking, local: true do |f| %>
 
     <%= f.hidden_field :eatery_id, :value => params[:id] %>
- 
-    <!--
-    <h2><%= f.label :eatery_id %><h2>
-    <p><%= f.number_field :eatery_id, value: params[:id] %></p>
-    -->
-    
-
-    <!--
-    <h2><%= f.label :eatery_id, 'Eatery Name' %><h2>
-    <p><%= f.collection_select :eatery_id, Eatery.all, :id, :name, include_blank: true %></p>
-    -->
 
     <h2><%= f.label :people_number %><h2>
-    <p><%= f.number_field :people_number %></p>
+    <p><%= f.number_field :people_number, in: 1..12 %></p>
 
     <h2><%= f.label :phone %><h2>
     <p><%= f.text_field :phone %></p>
 
     <h2><%= f.label :email %><h2>
-    <p><%= f.text_field :email %></p>
+    <p><%= f.email_field :email %></p>
 
     <h2><%= f.label :time %><h2>
-    <p><%= f.datetime_field :time %></p>
+    <p><%= f.datetime_field :time, min: Date.today %></p>
 
     <%= f.submit %>
 

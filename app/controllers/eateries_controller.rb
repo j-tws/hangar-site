@@ -1,5 +1,5 @@
 class EateriesController < ApplicationController
-  before_action :check_if_admin, except: [:index, :show, :eatery_type_index]
+  before_action :check_if_admin, except: [:index, :show, :eatery_type_index, :search]
 
   def new
     @eatery = Eatery.new
@@ -55,6 +55,23 @@ class EateriesController < ApplicationController
     Eatery.destroy params[:id]
 
     redirect_to eateries_path
+  end
+
+  def search
+    # params[:search] is passing the variable :search from the search bar
+    #.downcase will lower all string into lowercase characters
+    # '%' is used in the beginning, which means you will get the result of all the Eateries that ends with that letter you put in, and if you put '%' at the end, you will get the results of all the words that begins with that letter.
+    # .where() is to filter the results
+    # the word LIKE (caps) means it is trying to match the variable :search with search: In this case, search: is assigned to @param, where @param is the input by the user to the search bar where we set to lowercase initially
+
+    if params[:search].blank?
+      redirect_to eateries_path
+      return
+    else
+      @param = params[:search].downcase
+      @results = Eatery.all.where("lower(name) LIKE :search", search: "%#{@param}%")
+    end
+
   end
 
   private

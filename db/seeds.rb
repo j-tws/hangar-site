@@ -79,6 +79,21 @@ puts "created #{EateryType.count} types"
 
 ###########################################################
 
+print "Creating states..."
+
+State.destroy_all
+
+s1 = State.create!(
+    name: "VIC"
+)
+
+s2 = State.create!(
+    name: "NSW"
+)
+
+puts "created #{State.count} states"
+#######################################################
+
 
 print "Creating eateries..."
 
@@ -91,8 +106,9 @@ e1 = Eatery.create!(
     price_range: 30,
     description: "Belles' crave-worthy chicken, great booze, vinyl-friendly soundtrack and legendary parties quickly proved to be a cult favourite for a neighbourhood mainstay",
     image: "https://cdn.broadsheet.com.au/cache/ea/e6/eae61f49a357bae69a9aed3df1dae634.jpg",
-    user_id: u4.id
-
+    user_id: u4.id,
+    state_id: s1.id,
+    menu: "https://i.imgur.com/EcGvz6D.png"
 )
 
 e2 = Eatery.create!(
@@ -102,8 +118,9 @@ e2 = Eatery.create!(
     price_range: 40,
     description: "Well known for it's standout pepperoni pizzas, and the more current is the jalapeno with fermented pepper and cheese. The kitchen also churns out smashable, approachable start-of-the-night dishes that lend themselves to a raucous evening.",
     image: "https://cdn.broadsheet.com.au/cache/d5/99/d59981a391c4c3e51cc3a27bf40e123d.jpg",
-    user_id: u4.id
-
+    user_id: u4.id,
+    state_id: s1.id,
+    menu: "https://i.imgur.com/7lxJSKB.png"
 )
 
 e3 = Eatery.create!(
@@ -113,8 +130,9 @@ e3 = Eatery.create!(
     price_range: 25,
     description: "Biscuits, more cakes, pastries and pides line the counter, with substantial breakfast, lunch and brunch options visible on a protein-heavy menu that makes this cafe a local favourite in the neighbourhood.",
     image: "https://cdn.broadsheet.com.au/cache/6f/ba/6fba4ab3cd682f74d06a35936887691f.jpg",
-    user_id: u4.id
-
+    user_id: u4.id,
+    state_id: s1.id,
+    menu: "https://i.imgur.com/WTXnHRU.png"
 )
 
 e4 = Eatery.create!(
@@ -124,7 +142,9 @@ e4 = Eatery.create!(
     price_range: 30,
     description: "Biscuits, more cakes, pastries and pides line the counter, with substantial breakfast, lunch and brunch options visible on a protein-heavy menu that makes this cafe a local favourite in the neighbourhood.",
     image: "https://cdn.broadsheet.com.au/cache/9c/a6/9ca60b90612b760bf09374d5cbc31c2b.jpg",
-    user_id: u5.id
+    user_id: u5.id,
+    state_id: s1.id,
+    menu: "https://i.imgur.com/YLgf4DG.jpg"
 )
 
 e5 = Eatery.create!(
@@ -134,7 +154,45 @@ e5 = Eatery.create!(
     price_range: 40,
     description: "A place where there is a front bar for you to throw back easy-drinking lagers and ale, with a table-service bistro where you feast through well made burger or rotisserie of the day.",
     image: "https://cdn.broadsheet.com.au/cache/8a/6d/8a6d4172345b2fcaa838849b23b24ff8.jpg",
-    user_id: u5.id
+    user_id: u5.id,
+    state_id: s1.id,
+    menu: "https://i.imgur.com/yONq3Q5.png"
+)
+
+e6 = Eatery.create!(
+    name: "Quay",
+    cuisine: "Modern Contemporary",
+    location: "Sydney",
+    price_range: 120,
+    description: "Quay is a restaurant in Sydney, Australia. It is owned by Leon Fink, and is run by chef Peter Gilmore. It has won several awards in Australia, and has appeared in The World's 50 Best Restaurants several times.",
+    image: "https://cdn.broadsheet.com.au/cache/06/d4/06d42eb0159a83501fce3727543c5cba.jpg",
+    user_id: u5.id,
+    state_id: s2.id,
+    menu: "https://i.imgur.com/YogJT4f.png"
+)
+
+e7 = Eatery.create!(
+    name: "Bourke Street Bakery",
+    cuisine: "Breakfast food & pastries",
+    location: "Sydney",
+    price_range: 15,
+    description: "Every outlet offers a range of organic sourdough in flavours such as hazelnut and raisin; soy and linseed; fig and cranberry; and potato and rosemary (aka Mr Potato Bread). Then there are sausage rolls filled with lamb and harissa; chicken and pumpkin; and pork and fennel.",
+    image: "https://cdn.broadsheet.com.au/cache/f8/85/f885aada005943affba8d367c06971c4.jpg",
+    user_id: u4.id,
+    state_id: s2.id,
+    menu: "https://i.imgur.com/F7H5qhJ.png"
+)
+
+e8 = Eatery.create!(
+    name: "Old Mate's Place",
+    cuisine: "Hearty snacks and craft alcohols",
+    location: "Sydney",
+    price_range: 35,
+    description: "More than your everage bar, there's a short and sharp cocktail list to select from. For food, sink your teeth into a hefty Philly cheese steak or a rotating selection of deli meats and ploughman's plates.",
+    image: "https://cdn.broadsheet.com.au/cache/d4/f7/d4f725bf50135d50199ae208477e54e6.jpg",
+    user_id: u5.id,
+    state_id: s2.id,
+    menu: "https://i.imgur.com/8gQcFWo.png"
 )
 
 puts "created #{Eatery.count} eateries"
@@ -145,6 +203,9 @@ e2.eatery_types << restaurant
 e3.eatery_types << cafe
 e4.eatery_types << bar
 e5.eatery_types << restaurant << bar
+e6.eatery_types << restaurant << bar
+e7.eatery_types << cafe
+e8.eatery_types << bar
 
 #####################################################
 
@@ -258,4 +319,6 @@ en6 = Enquiry.create!(
 )
 
 puts "created #{Enquiry.count} enquiries"
+
+########################################################
 

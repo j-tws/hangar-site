@@ -13,9 +13,10 @@ class BookingsController < ApplicationController
     @booking.save
 
     if @booking.persisted?
-      redirect_to bookings_path
+      redirect_to user_path(@current_user.id)
     else
-      render :new
+      @eatery = Eatery.find params[:booking][:eatery_id] #booking_params[:eatery_id]
+      render "eateries/show"
     end
 
   end
@@ -70,7 +71,12 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def self.search(search)
+    where("lower(eateries.name) LIKE :search OR lower(bookings.name) LIKE :search", search: "%#{search.downcase}%").uniq
+  end
+
   private
+  
   def booking_params
     params.require(:booking).permit(:eatery_id, :people_number, :phone, :email, :time)
   end
