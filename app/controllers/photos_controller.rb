@@ -23,6 +23,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
+    @eateries = Eatery.all
   end
 
   def show

@@ -41,14 +41,16 @@ class UsersController < ApplicationController
       time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
 
-    check_if_same_user @user.id
-
+    unless @current_user.admin
+      check_if_same_user @user.id
+    end
   end
 
   def edit
     @user = User.find params[:id]
-
-    check_if_same_user @user.id
+    unless @current_user.admin
+      check_if_same_user @user.id
+    end
   end
 
   def update

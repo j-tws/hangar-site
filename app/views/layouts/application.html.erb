@@ -33,7 +33,9 @@
         
         <%= link_to 'PROFILE DETAIL', user_path(@current_user.id) %>
         
-        <%= link_to 'ENQUIRY & SUPPORT', enquiries_path %>
+        <% unless @current_user.admin %>
+          <%= link_to 'ENQUIRY & SUPPORT', enquiries_path %>
+        <% end %>
 
         <%= link_to 'LOGOUT', login_path, method: 'delete' %>
 
@@ -41,20 +43,6 @@
         <%= link_to 'LOGIN', login_path %>
         
         <%= link_to 'SIGN UP', new_user_path %>
-      <% end %>
-      
-      
-
-      <% if @current_user.present? && @current_user.admin == true %>
-      Admin Tools
-      
-      <%= link_to 'ADD EATERY', new_eatery_path %>
-      
-      <%= link_to 'BROWSE ALL BOOKINGS', bookings_path %>
-      
-      <%= link_to 'ALL ACCOUNTS', users_path %>
-      
-      <%= link_to 'ALL GALLERY PHOTOS', photos_path %>
       <% end %>
       
     <div id="search_bar">
@@ -68,11 +56,25 @@
     </div>
 
     </nav>
+      
+  <% if @current_user.present? && @current_user.admin == true %>
+    <nav id="admin_nav">
+
+      <h2>ADMIN TOOLS</h2>
+      <%= link_to 'ENQUIRY & SUPPORT', enquiries_path %>
+      
+      <%= link_to 'ADD EATERY', new_eatery_path %>
+      
+      <%= link_to 'BROWSE ALL BOOKINGS', bookings_path %>
+      
+      <%= link_to 'ALL ACCOUNTS', users_path %>
+      
+      <%= link_to 'ALL GALLERY PHOTOS', photos_path %>
+    </nav>
+  <% end %>
 
     
     <%= yield %>
-
-
 
   </body>
 </html>

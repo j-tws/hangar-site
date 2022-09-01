@@ -1,8 +1,28 @@
-<h1>All Users</h1>
+<h2 class="page_header">All Registered Accounts</h2>
 
-<% @users.each do |user| %>
+<div class="user_grid">
+    <% @users.each do |user| %>
 
-    <%= link_to image_tag(user.image, alt: user.name, class: 'user_index_img'), user_path(user.id) %>
-    <p><%= user.name %></p>
+        <% unless user.admin %>
+            <div class="user_box">
+                <%= link_to image_tag(user.image, alt: user.name, class: 'user_index_img'), user_path(user.id) %>
+                <h3><%= user.name %></h3>
+                <p><em>Created: <%= user.created_at.strftime('%I:%M%P at %B %d, %Y') %></em></p>
+            </div>
+        <% end %>
+    <% end %>
+</div>
 
-<% end %>
+<h2 class="page_header">All Admin Accounts</h2>
+<div class="user_grid">
+    <% @users.each do |user| %>
+
+        <% if user.admin %>
+            <div class="user_box">
+                <%= link_to image_tag(user.image, alt: user.name, class: 'user_index_img'), user_path(user.id) %>
+                <h3><%= user.name %></h3>
+                <p><em>Created: <%= user.created_at.strftime('%I:%M%P at %B %d, %Y') %></em></p>
+            </div>
+        <% end %>
+    <% end %>
+</div>

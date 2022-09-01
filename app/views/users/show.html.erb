@@ -29,10 +29,13 @@
 <%= month_calendar(events: @bookings, attribute: :time) do |date, bookings| %>
   <%= date.day %>
 
-  <% bookings.each do |booking| %>
+    <% bookings.each do |booking| %>
 
-    <%= link_to booking.eatery.name, booking_path(booking.id) %>
-    <%= booking.time %>
+        <%= link_to cl_image_tag(booking.eatery.image, width: 80, height: 80, name: booking.eatery.name, class: 'calander_thumbnail'), booking_path(booking.id) %>
+
+        <p class="calendar_eatery_name"><strong><%= booking.eatery.name %></strong></p>
+        <%= booking.time.strftime('%I:%M%P at %B %d, %Y') %>
+
     <% end %>
     <%# <script>
         location.hash = "#form"

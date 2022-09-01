@@ -23,22 +23,26 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @users = User.all
   end
 
   def show
     @booking = Booking.find params[:id]
 
-    if @booking.user_id != @current_user.id
-      redirect_to login_path
+    unless @current_user.admin
+      if @booking.user_id != @current_user.id
+        redirect_to login_path
+      end
     end
-
   end
 
   def edit
     @booking = Booking.find params[:id]
 
-    if @booking.user_id != @current_user.id
-      redirect_to login_path
+    unless @current_user.admin
+      if @booking.user_id != @current_user.id
+        redirect_to login_path
+      end
     end
 
   end

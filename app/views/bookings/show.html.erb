@@ -1,7 +1,7 @@
-<h2 class="page_header">Your booking details with <%= @booking.eatery.name %></h2>
+<h2 class="page_header">Booking details with <%= @booking.eatery.name %></h2>
 
 <div class="show_box">
-    <%= image_tag @booking.eatery.image, alt: @booking.eatery.name, class: 'eatery_show_img' %>
+    <%= cl_image_tag @booking.eatery.image, alt: @booking.eatery.name, class: 'eatery_show_img' %>
 
     <div class="booking_details">
         <h2>Number of people</h2>
@@ -15,6 +15,12 @@
 
         <h2>Date and Time</h2>
         <p><%= @booking.time %></p>
+
+        <% if @current_user.admin %>
+            <h2>Booked by</h2>
+            <p><%= @booking.user.name %></p>
+        <% end %>
+
     </div>
 </div>
 

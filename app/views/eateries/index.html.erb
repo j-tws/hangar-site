@@ -13,7 +13,7 @@
     <% @eateries.each do |eatery| %>
 
         <div class="eatery_show_box">
-            <%= link_to cl_image_tag(eatery.image, alt: eatery.name, class: 'eatery_index_img'), eatery_path(eatery.id) %>
+        <%= link_to cl_image_tag(eatery.image, alt: eatery.name, class: 'eatery_index_img'), eatery_path(eatery.id) %>
             <p><%= eatery.name %></p>
         </div>
 

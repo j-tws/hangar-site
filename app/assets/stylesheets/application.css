@@ -19,6 +19,18 @@
     width: 70vw;
     margin: 0 auto;
     margin-bottom: 150px;
+    font-family: 'Oswald', sans-serif;
+ }
+
+ .simple-calendar img {
+    border-radius: 50%;
+    border: 8px solid rgba(255, 211, 54, 0.89);
+    display: block;
+    margin: 0 auto;
+ }
+
+ .calendar_eatery_name {
+    font-family: 'Oswald', sans-serif;
  }
 
  .table {
@@ -26,7 +38,7 @@
  }
 
 .day {
-
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .wday-0 {
@@ -43,8 +55,12 @@
     color: red
 }
 
-.today {}
-.past {}
+.today {
+    background: lightcoral;
+}
+.past {
+    color: rgb(180, 180, 180)
+}
 .future {}
 
 .start-date {}
@@ -62,6 +78,10 @@
     margin: 30px;
     padding: 5px;
     border-radius: 5px;
+}
+
+.calendar_thumbnail {
+    border-radius: 50%;
 }
 
 

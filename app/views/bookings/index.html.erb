@@ -1,8 +1,22 @@
-<h2>All Bookings</h2>
+<h2 class="page_header">All Bookings</h2>
 
-<% @bookings.each do |booking| %>
+<div class="eatery_grid">
+    <% @users.each do |user| %>
 
-    <%= link_to image_tag(booking.eatery.image, alt: booking.eatery.name, class: 'booking_index_img'), booking_path(booking.id) %>
-<p><%= booking.eatery.name %></p>
+        <% unless user.admin %>
 
-<% end %>
+            <h2>Bookings for <%= user.name %></h2>
+
+                <% user.bookings.each do |booking| %>
+                <div class="eatery_show_box">
+                    <%= link_to cl_image_tag(booking.eatery.image, alt: booking.eatery.name, class: 'eatery_index_img'), booking_path(booking.id) %>
+
+                    <p><%= booking.eatery.name %></p>
+                    <p><%= booking.time.strftime('%I:%M%P at %B %d, %Y') %></p>
+                </div>
+                <% end %> <!-- users booking-->
+
+        <% end %> <!-- check admin status-->
+
+    <% end %> <!-- all user loop-->
+</div>

@@ -3,15 +3,23 @@
 <%= link_to 'Add New Photo', new_photo_path, id: 'new_photo' %>
 
 
-<% @photos.each do |photo| %>
-    <div class="photo_box">
-    <%= cl_image_tag(photo.url, alt: photo.name, class: 'photo_index') %>
-    <p><%= photo.name %></p>
-    <p><%= photo.description %></p>
+<div class="eatery_grid">
+    <% @eateries.each do |eatery| %>
 
-    <%= link_to 'Edit Photo', edit_photo_path(photo.id) %>
+            <h2>Photos for <%= eatery.name %></h2>
 
-    <%= link_to 'Delete Photo', destroy_photo_path(photo.id) %>
-    </div>
+                <% eatery.photos.each do |photo| %>
+                <div class="eatery_show_box">
+                    <%= link_to cl_image_tag(photo.url, alt: photo.name, class: 'eatery_index_img'), photo_path(photo.id) %>
 
-<% end %>
+                    <p><%= photo.name %></p>
+                    <%= link_to 'Edit Photo', edit_photo_path(photo.id) %>
+                    <%= link_to 'Delete Photo', destroy_photo_path(photo.id) %>
+                </div>
+                <% end %> <!-- users booking-->
+
+    <% end %> <!-- all user loop-->
+</div>
+
+
+    

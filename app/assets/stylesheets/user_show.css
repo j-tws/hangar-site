@@ -5,6 +5,7 @@
     margin: 0 auto;
     border-radius: 30px;
     background-color: rgba(255, 211, 54, 0.89);
+    box-shadow: 10px 5px 5px 5px rgb(200, 200, 200);
 }
 
 #user_details_box p{

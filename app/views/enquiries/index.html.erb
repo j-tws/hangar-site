@@ -10,11 +10,11 @@
                 <p class='post_name'><%= en.user.name %></p>
             </div>
 
-                <h3><strong>YOUR QUERY</strong></h3>
+                <h3><strong>USER'S QUERY</strong></h3>
                 <p><%= en.query %></p>
 
             
-                <h3><strong>ADMIN RESPONSE</strong></h3> 
+                <h3><strong>YOUR RESPONSE</strong></h3> 
                 <p><%= en.response %></p>
 
 
@@ -40,11 +40,11 @@
             </div>
 
                 <h3><strong>YOUR QUERY</strong></h3>
-                <p><%= en.query %></p>
+                <p class='query'><%= en.query %></p>
 
             
                 <h3><strong>ADMIN RESPONSE</strong></h3> 
-                <p><%= en.response %></p>
+                <p class='response'><%= en.response %></p>
 
 
             <%= link_to 'Delete Post', destroy_enquiry_path(en.id), class: 'post_delete' %>

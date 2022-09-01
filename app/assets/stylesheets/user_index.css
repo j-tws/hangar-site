@@ -1,0 +1,19 @@
+.user_grid {
+
+}
+
+.user_box {
+    display: inline-block;
+    margin: 30px 20px;
+    font-size: 15pt;
+}
+
+.user_index_img {
+    border-radius: 15px;
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    margin: auto 0;
+    border: 8px solid rgba(255, 211, 54, 0.89);
+    box-shadow: 10px 5px 5px 5px rgb(200, 200, 200);
+}
