@@ -9,7 +9,7 @@
     <h2>Venue Type</h2>
         <% @eatery.eatery_types.each do |type| %>
 
-            <p><%= link_to type.name, eatery_type_path(type.id) %></p>
+            <%= link_to type.name, eatery_type_path(type.id), class: 'sort_tag' %>
 
         <% end %>
 
@@ -28,7 +28,7 @@
 
 </div>
 
-<h2><%= link_to 'View Menu here', @eatery.menu %></h2>
+<h2><%= link_to 'View Menu here', @eatery.menu, class: 'menu_tag' %></h2>
 
 <div class="eatery_gallery">
     <% @eatery.photos.each do |photo| %>
@@ -51,38 +51,40 @@
 -->
 <a name="form"></a>
 
-<h2 class="page_header">MAKE BOOKING HERE</h2>
+<div id="booking_area">
+    <h2 class="page_header">MAKE BOOKING HERE</h2>
 
-<% if @booking.errors.any? %>
-    <strong>Please correct the following errors:</strong>
-    <ul>
-        <% @booking.errors.full_messages.each do |e| %>
-            <li><%= e %></li>
-        <% end %>
-    </ul>
-    <script>
-        location.hash = "#form"
-    </script>
-<% end %>
-
-<div id="booking_form">
-    <%= form_with model: @booking, local: true do |f| %>
-
-        <%= f.hidden_field :eatery_id, :value => params[:id] %>
-
-        <h2><%= f.label :people_number %><h2>
-        <p><%= f.number_field :people_number, in: 1..12 %></p>
-
-        <h2><%= f.label :phone %><h2>
-        <p><%= f.text_field :phone %></p>
-
-        <h2><%= f.label :email %><h2>
-        <p><%= f.email_field :email %></p>
-
-        <h2><%= f.label :time %><h2>
-        <p><%= f.datetime_field :time, min: Date.today %></p>
-
-        <%= f.submit %>
-
+    <% if @booking.errors.any? %>
+        <strong>Please correct the following errors:</strong>
+        <ul>
+            <% @booking.errors.full_messages.each do |e| %>
+                <li><%= e %></li>
+            <% end %>
+        </ul>
+        <script>
+            location.hash = "#form"
+        </script>
     <% end %>
+
+    <div class="new_form">
+        <%= form_with model: @booking, local: true do |f| %>
+
+            <%= f.hidden_field :eatery_id, :value => @eatery.id %>
+
+            <h2><%= f.label :people_number %><h2>
+            <p><%= f.number_field :people_number, in: 1..12, placeholder: 'Enter number of people here' %></p>
+
+            <h2><%= f.label :phone %><h2>
+            <p><%= f.text_field :phone, placeholder: 'Enter phone number here' %></p>
+
+            <h2><%= f.label :email %><h2>
+            <p><%= f.email_field :email, placeholder: 'Enter email here' %></p>
+
+            <h2><%= f.label :time %><h2>
+            <p><%= f.datetime_field :time, min: Date.today %></p>
+
+            <%= f.submit %>
+
+        <% end %>
+    </div>
 </div>

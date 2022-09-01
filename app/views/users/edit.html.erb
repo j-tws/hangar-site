@@ -1,3 +1,13 @@
 <h2>Edit account details</h2>
 
+<% if @user.errors.any? %>
+    <strong class='red'>Please correct the following errors:</strong>
+    <ul>
+        <% @user.errors.full_messages.each do |e| %>
+            <li class='red'><%= e %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+
 <%= render partial: 'form' %>

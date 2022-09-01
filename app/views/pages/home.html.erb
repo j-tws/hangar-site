@@ -1,1 +1,11 @@
+<% if flash[:error] %>
 
+    <p class="login_error"><strong><%= flash[:error] %></strong></p>
+
+<% end %>
+
+<% if flash[:error_admin] %>
+
+    <p class="login_error"><strong><%= flash[:error_admin] %></strong></p>
+
+<% end %>

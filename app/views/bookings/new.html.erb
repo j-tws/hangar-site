@@ -1,10 +1,12 @@
+<!--
 <% if @booking.errors.any? %>
-    <strong>Please correct the following errors:</strong>
+    <strong class="red">Please correct the following errors:</strong>
     <ul>
         <% @booking.errors.full_messages.each do |e| %>
-            <li><%= e %></li>
+            <li class="red"><%= e %></li>
         <% end %>
     </ul>
 <% end %>
 
 <%= render partial: 'form' %>
+-->

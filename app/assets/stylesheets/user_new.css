@@ -1,0 +1,13 @@
+.new_user_form p {
+    margin-top: -20px;
+}
+
+.new_user_form input {
+    height: 25px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.new_user_form {
+    margin-bottom: 150px;
+}

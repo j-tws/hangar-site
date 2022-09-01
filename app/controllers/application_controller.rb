@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
 
     def check_if_same_user user_id
         if user_id != @current_user.id
+            flash[:error] = "Do not be sneaky and stay at your profile"
             redirect_to root_path
             return
         end
@@ -37,6 +38,7 @@ class ApplicationController < ActionController::Base
 
     def check_if_admin 
         unless @current_user.present? && @current_user.admin
+            flash[:error_admin] = "You are not admin. Do not be sneaky again"
             redirect_to root_path
         end
     end

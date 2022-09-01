@@ -1,43 +1,42 @@
 <h2 class="page_header">Account Details for <%= @user.name %></h2>
 
-<div id="user_details">
+<div id="user_details_box">
     <%= image_tag @user.image, alt: @user.name, class: 'user_img' %>
 
-    <h2>Name</h2>
-    <p><%= @user.name %></p>
+    <div id="user_details">
+        <h2>Name</h2>
+        <p><%= @user.name %></p>
 
-    <h2>Email</h2>
-    <p><%= @user.email %></p>
+        <h2>Email</h2>
+        <p><%= @user.email %></p>
 
-    <h2>Phone Number</h2>
-    <p><%= @user.phone %></p>
-    <br>
-
-    <%= link_to 'Edit Account Details', edit_user_path(@user.id) %>
-    <%= link_to 'Delete Account', user_path(@user.id), method: 'delete' %>
-
+        <h2>Phone Number</h2>
+        <p><%= @user.phone %></p>
+        <br>
+    </div>
 </div>
+<br>
+<br>
 
-<!--
-<% @user.bookings.each do |booking| %>
+    <%= link_to 'Edit Account Details', edit_user_path(@user.id), class: 'sort_tag' %>
+    <%= link_to 'Delete Account', user_path(@user.id), method: 'delete', class: 'sort_tag' %>
 
-    <%= cl_image_tag booking.eatery.image, alt: booking.eatery.name, class: 'acc_booking_img' %>
-    <p><%= booking.eatery_name %></p>
-    <p><%= link_to 'View Booking Details', booking_path(booking.id) %></p>
 
-<% end %>
--->
 <h2 class="page_header">Your Calendar Bookings</h2>
+
+<%# <a name="form"></a> %>
 
 <%= month_calendar(events: @bookings, attribute: :time) do |date, bookings| %>
   <%= date.day %>
 
   <% bookings.each do |booking| %>
 
-    <%= link_to booking.eatery_name, booking_path(booking.id) %>
+    <%= link_to booking.eatery.name, booking_path(booking.id) %>
     <%= booking.time %>
     <% end %>
-
+    <%# <script>
+        location.hash = "#form"
+    </script> %>
 <% end %>
 
 <% if @current_user.admin %>

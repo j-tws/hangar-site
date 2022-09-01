@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/photos/:id/delete' => 'photos#destroy', as: 'destroy_photo'
 
+  get '/enquiries/:id/delete' => 'enquiries#destroy', as: 'destroy_enquiry'
+
   resources :eateries, :bookings, :users, :enquiries, :photos
 
 end

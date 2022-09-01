@@ -24,23 +24,23 @@
 
     <nav>
       <% unless @current_user.present? %>
-        <%= link_to 'Home', root_path %>
+        <%= link_to 'HOME', root_path %>
       <% end %>
 
-      <%= link_to 'All Eateries', eateries_path %>
+      <%= link_to 'ALL EATERIES', eateries_path %>
       
       <% if @current_user.present? %>
         
-        <%= link_to 'Profile Detail', user_path(@current_user.id) %>
+        <%= link_to 'PROFILE DETAIL', user_path(@current_user.id) %>
         
-        <%= link_to 'Enquiry & Support', enquiries_path %>
+        <%= link_to 'ENQUIRY & SUPPORT', enquiries_path %>
 
-        <%= link_to 'Logout', login_path, method: 'delete' %>
+        <%= link_to 'LOGOUT', login_path, method: 'delete' %>
 
       <% else %>
-        <%= link_to 'Login', login_path %>
+        <%= link_to 'LOGIN', login_path %>
         
-        <%= link_to 'Sign Up', new_user_path %>
+        <%= link_to 'SIGN UP', new_user_path %>
       <% end %>
       
       
@@ -48,13 +48,13 @@
       <% if @current_user.present? && @current_user.admin == true %>
       Admin Tools
       
-      <%= link_to 'Add Eatery', new_eatery_path %>
+      <%= link_to 'ADD EATERY', new_eatery_path %>
       
-      <%= link_to 'Browse Bookings', bookings_path %>
+      <%= link_to 'BROWSE ALL BOOKINGS', bookings_path %>
       
-      <%= link_to 'All Accounts', users_path %>
+      <%= link_to 'ALL ACCOUNTS', users_path %>
       
-      <%= link_to 'All Gallery Photos', photos_path %>
+      <%= link_to 'ALL GALLERY PHOTOS', photos_path %>
       <% end %>
       
     <div id="search_bar">

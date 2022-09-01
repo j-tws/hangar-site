@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_if_logged_in, except: [:new, :create]
-  before_action :check_if_admin, except: [:new, :create, :show, :edit]
+  before_action :check_if_admin, except: [:new, :create, :show, :edit, :update]
 
 
   def new
@@ -40,6 +40,9 @@ class UsersController < ApplicationController
     @bookings = @user.bookings.where(
       time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
+
+    check_if_same_user @user.id
+
   end
 
   def edit
@@ -54,7 +57,7 @@ class UsersController < ApplicationController
     check_if_same_user @user.id
     if @user.update user_params
 
-      redirect_to @user
+      redirect_to user_path(@user.id)
 
     else
       render :edit

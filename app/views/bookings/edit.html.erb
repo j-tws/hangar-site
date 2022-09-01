@@ -1,5 +1,13 @@
-<h2>Edit your booking here</h2>
+<h2 class="page_header">Edit your booking here</h2>
+
+<% if @booking.errors.any? %>
+    <strong class="red">Please correct the following errors:</strong>
+    <ul>
+        <% @booking.errors.full_messages.each do |e| %>
+            <li class="red"><%= e %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= render partial: 'form' %>
-
 

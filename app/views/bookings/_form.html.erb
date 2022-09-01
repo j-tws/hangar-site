@@ -1,25 +1,26 @@
 <%= form_with model: @booking, local: true do |f| %>
 
-    
-    <h2><%= f.label :eatery_id, 'Eatery Name' %><h2>
-    <p><%= f.collection_select :eatery_id, Eatery.all, :id, :name, include_blank: true %></p>
+    <div class="new_form">
+        <h2><%= f.label :eatery_id, 'Eatery Name' %><h2>
+        <p><%= f.collection_select :eatery_id, Eatery.all, :id, :name, include_blank: true %></p>
 
-    <!--
-    <%= f.hidden_field :eatery_id, value: params[:id] %>
-    -->
+        <!--
+        <%= f.hidden_field :eatery_id, value: params[:id] %>
+        -->
 
-    <h2><%= f.label :people_number %><h2>
-    <p><%= f.number_field :people_number, in: 1..12 %></p>
+        <h2><%= f.label :people_number %><h2>
+        <p><%= f.number_field :people_number, in: 1..12 %></p>
 
-    <h2><%= f.label :phone %><h2>
-    <p><%= f.text_field :phone %></p>
+        <h2><%= f.label :phone %><h2>
+        <p><%= f.text_field :phone %></p>
 
-    <h2><%= f.label :email %><h2>
-    <p><%= f.email_field :email %></p>
+        <h2><%= f.label :email %><h2>
+        <p><%= f.email_field :email %></p>
 
-    <h2><%= f.label :time %><h2>
-    <p><%= f.datetime_field :time, min: Date.today %></p>
+        <h2><%= f.label :time %><h2>
+        <p><%= f.datetime_field :time, min: Date.today %></p>
 
-    <%= f.submit %>
+        <%= f.submit %>
+    </div>
 
 <% end %>

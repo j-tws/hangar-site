@@ -1,12 +1,21 @@
 .eatery_show_img {
     border-radius: 15px;
-    width: 40vw;
-    max-width: 1500px;
+    width: 750px;
+    margin: auto 0;
+}
+
+.show_box {
+    /* border: 1px solid red; */
+    text-align: center;
+    width: 80vw;
+    padding: 30px;
+    margin: 0 auto;
 }
 
 .details {
-    width: 40vw;
-    margin: 0 auto;
+    display: inline-block;
+    width: 500px;
+    padding: 0 40px;
 }
 
 .eatery_gallery_box {
@@ -23,21 +32,35 @@
     border-radius: 7px;
 }
 
-.details p {
-    margin-top: -15px;
-}
-
-#booking_form input {
-    height: 20px;
+.new_form input {
+    height: 30px;
     margin-bottom: 30px;
     border-radius: 3px;
-    width: 200px;
+    width: 300px;
 }
 
-#booking_form h2 {
+.new_form h2 {
     margin-bottom: -30px;
 }
 
-#booking_form {
+.new_form {
     margin-bottom: 100px;
+}
+
+.menu_tag {
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgba(255, 211, 54, 0.89) ;
+    color: black;
+    font-size: 15pt;
+    margin: 10px;
+    /* border: 2px solid rgb(178, 178, 178); */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#booking_area {
+    background-color: rgba(255, 211, 54, 0.89);
+    /* border: 1px solid red; */
+    padding: 10px;
 }

@@ -51,6 +51,7 @@ class EateriesController < ApplicationController
     @eatery = Eatery.find params[:id]
     @booking = Booking.new
     @booking.eatery_id = params[:id]
+
   end
 
   def edit

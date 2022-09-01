@@ -21,6 +21,10 @@
     margin-bottom: 150px;
  }
 
+ .table {
+    margin-top: 30px;
+ }
+
 .day {
 
 }
@@ -51,5 +55,13 @@
 
 .has-events {}
   
+.calendar-heading a {
+    color: black;
+    text-decoration: none;
+    background-color: rgba(255, 211, 54, 0.89);
+    margin: 30px;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 

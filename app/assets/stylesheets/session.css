@@ -24,6 +24,7 @@
     margin-bottom: 50px;
 }
 
-#login_error {
+.login_error {
     color: red;
 }
+

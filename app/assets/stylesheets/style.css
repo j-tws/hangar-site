@@ -24,22 +24,6 @@ footer p {
     font-size: 25pt;
 }
 
-.query_post {
-    border: 1px solid rgb(106, 106, 106);
-    border-radius: 10px;
-    width: 50vw;
-    padding: 10px 50px 50px 40px;
-    margin: 10px;
-}
-
-.post_img {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    right: 20px;
-}
-
 nav {
     position: relative;
     /* border: 1px solid red; */
@@ -91,4 +75,8 @@ nav a {
 
 #new_photo {
     display: block;
+}
+
+.red {
+    color: red;
 }

@@ -1,5 +1,6 @@
 class EnquiriesController < ApplicationController
   before_action :check_if_logged_in
+  before_action :check_if_admin, only: [:edit, :update]
 
   def new
 
@@ -16,7 +17,8 @@ class EnquiriesController < ApplicationController
     else
       puts "========================="
       puts @enquiry.errors.full_messages
-      render :new
+      @user_enquiries = @current_user.enquiries
+      render :index
     end
 
   end
@@ -45,7 +47,8 @@ class EnquiriesController < ApplicationController
   end
 
   def destroy
-
+    Enquiry.destroy params[:id]
+    redirect_to enquiries_path
   end
 
   private

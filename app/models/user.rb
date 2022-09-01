@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
     validates :password, presence: true
 
+    validates :image, presence: true
+
     # how to give a default profile pic if user dont upload image?
     
     def search_bookings(query)

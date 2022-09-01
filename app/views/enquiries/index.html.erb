@@ -1,42 +1,65 @@
-<% if @current_user.present? && @current_user.admin == true %>
+<% if @current_user.present? && @current_user.admin %>
 
-<h2>All enquiries</h2>
+<h2 class="page_header">All enquiries</h2>
+<div class="enquiry_grid">
 
     <% @enquiries.each do |en| %>
-
         <div class="query_post">
-            <%= image_tag en.user.image, class: 'post_img' %>
-            <%= en.query %>
+            <div class="avatar">
+                <%= image_tag en.user.image, class: 'post_img' %>
+                <p class='post_name'><%= en.user.name %></p>
+            </div>
 
-            <p><em>
-            Admin response: <%= en.response %>
-            </em></p>
+                <h3><strong>YOUR QUERY</strong></h3>
+                <p><%= en.query %></p>
 
-            <% if en.response == nil %>
-                <%= link_to 'Add Response', edit_enquiry_path(en.id) %>
-            <% end %>
+            
+                <h3><strong>ADMIN RESPONSE</strong></h3> 
+                <p><%= en.response %></p>
+
+
+            <%= link_to 'Delete Post', destroy_enquiry_path(en.id), class: 'post_delete' %>
 
         </div>
 
     <% end %>
+</div>
 
 <% elsif @current_user.present? && @current_user.admin == false %>
 
-<h2>Your enquiries</h2>
 
+<h2 class="page_header">Your enquiries</h2>
+
+<div class="enquiry_grid">
     <% @user_enquiries.each do |en| %>
 
         <div class="query_post">
-            <%= image_tag en.user.image, class: 'post_img' %>
-            <%= en.query %>
+            <div class="avatar">
+                <%= image_tag en.user.image, class: 'post_img' %>
+                <p class='post_name'><%= en.user.name %></p>
+            </div>
 
-            <p><em>
-                Admin response: <%= en.response %>
-            </em></p>
+                <h3><strong>YOUR QUERY</strong></h3>
+                <p><%= en.query %></p>
+
+            
+                <h3><strong>ADMIN RESPONSE</strong></h3> 
+                <p><%= en.response %></p>
+
+
+            <%= link_to 'Delete Post', destroy_enquiry_path(en.id), class: 'post_delete' %>
         </div>
-
-
     <% end %>
+</div>
+
+<% if @enquiry.errors.any? %>
+    <strong class='red'>Please correct the following errors:</strong>
+    <ul>
+        <% @enquiry.errors.full_messages.each do |e| %>
+            <li class='red'><%= e %></li>
+        <% end %>
+    </ul>
+<% end %>
 
     <%= form_with model: @enquiry, local: true do |f| %>
 
@@ -45,7 +68,7 @@
 
     <%= f.submit %>
 
-<% end %>
+    <% end %>
 
 <% end %>
 
