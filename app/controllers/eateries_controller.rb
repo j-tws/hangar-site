@@ -60,6 +60,14 @@ class EateriesController < ApplicationController
 
   def update
     eatery = Eatery.find params[:id]
+
+    if params[:eatery][:image].present?
+
+      response = Cloudinary::Uploader.upload params[:eatery][:image]
+  
+      eatery.image = response["public_id"]
+    end
+
     eatery.update eatery_params
 
     redirect_to eatery_path(eatery.id)
@@ -99,7 +107,7 @@ class EateriesController < ApplicationController
   private
   
   def eatery_params
-    params.require(:eatery).permit(:name, :cuisine, :location, :price_range, :description, :image)
+    params.require(:eatery).permit(:name, :cuisine, :location, :price_range, :description)
   end
 
   def booking_params

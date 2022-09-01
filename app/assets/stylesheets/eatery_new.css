@@ -1,0 +1,20 @@
+.new_eatery_form input {
+    height: 25px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.new_eatery_form p {
+    margin-top: -20px;
+}
+
+.checkbox label{
+    margin: 0 auto;
+    display: block;
+    height: 15px;
+}
+
+.checkbox input {
+    width: 30px;
+    height: 18px;
+}

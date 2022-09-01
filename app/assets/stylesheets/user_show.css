@@ -19,11 +19,12 @@
     object-fit: cover;
     border-radius: 50%;
     margin: 40px 150px;
+    border: 13px solid rgb(41, 41, 41);
 }
 
 #user_details {
     position: relative;
-    left: 10vw;
+    left: 8vw;
     bottom: 70px;
     display: inline-block;
 }

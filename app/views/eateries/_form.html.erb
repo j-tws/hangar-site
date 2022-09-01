@@ -1,3 +1,4 @@
+<div class="new_eatery_form">
 <%= form_with model: @eatery, local: true, html: { multipart: true } do |f| %>
 
     <h2><%= f.label :name %><h2>
@@ -22,15 +23,19 @@
     <p><%= f.file_field :image %></p>
 
     <h2>Eatery Type</h2>
-    <% EateryType.all.each do |type| %>
-        <label>
-            <%= check_box_tag 'eatery_type_ids[]', type.id  %>
-            <%= type.name %>
-        </label>
-        <br>
+    <div class='checkbox'>
+        <% EateryType.all.each do |type| %>
+            <label>
+                <%= check_box_tag 'eatery_type_ids[]', type.id  %>
+                <%= type.name %>
+            </label>
+            <br>
 
     <% end %>
+    </div>
+    <br><br>
 
     <%= f.submit %>
 
 <% end %>
+</div>

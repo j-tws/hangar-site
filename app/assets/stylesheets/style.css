@@ -10,16 +10,33 @@ h1, h2 {
     font-family: 'Oswald', sans-serif;
 }
 
+header {
+    background-image: url("https://res.cloudinary.com/dpu8e4ucu/image/upload/v1662042895/Project%201%20Images/front_cover_1_bczhpa.jpg");
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+    color: rgb(255, 211, 54);
+}
+
+#cover_text {
+    border: 8px solid rgb(255, 211, 54);
+    width: 50vw;
+    margin: 40px auto;
+}
+
+
 h1 {
-    font-size: 60pt;
-    margin-bottom: 20px
+    font-size: 80pt;
+    margin: -25px 0;
+    padding-top: 20px;
 }
 
 .page_header {
     font-size: 25pt;
 }
 
-footer p {
+header p {
     font-family: 'Oswald', sans-serif;
     font-size: 25pt;
 }
@@ -29,7 +46,7 @@ nav {
     /* border: 1px solid red; */
 
     padding: 20px 0;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(31, 31, 31);
 }
 
 nav a {
@@ -88,6 +105,11 @@ nav a:hover {
     width: 80px;
 }
 
+#home_img {
+    width: 45vw;
+    border-radius: 20px;
+}
+
 .photo_index {
     width: 400px;
     height: 250px;
@@ -103,4 +125,8 @@ nav a:hover {
 
 .red {
     color: red;
+}
+
+.field_with_errors input {
+    background: rgb(255, 169, 169);
 }
