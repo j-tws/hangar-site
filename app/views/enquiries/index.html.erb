@@ -10,13 +10,22 @@
                 <p class='post_name'><%= en.user.name %></p>
             </div>
 
-                <h3><strong>USER'S QUERY</strong></h3>
-                <p><%= en.query %></p>
+                <div class="query_response">
+                    <h3><strong>USER'S QUERY</strong></h3>
+                    <p><%= en.query %></p>
 
+                
+                    <h3><strong>YOUR RESPONSE</strong></h3> 
+                    <p><%= en.response %></p>
+                </div>
+
+            <p class="query_time"><em>Created at <%= en.created_at.strftime('%I:%M%P at %B %d, %Y') %></em></p>
             
-                <h3><strong>YOUR RESPONSE</strong></h3> 
-                <p><%= en.response %></p>
+            <% if en.response == nil %>
 
+                <%= link_to 'Add Response', edit_enquiry_path(en.id), class: 'post_edit' %>
+
+            <% end %>
 
             <%= link_to 'Delete Post', destroy_enquiry_path(en.id), class: 'post_delete' %>
 
@@ -39,13 +48,16 @@
                 <p class='post_name'><%= en.user.name %></p>
             </div>
 
-                <h3><strong>YOUR QUERY</strong></h3>
-                <p class='query'><%= en.query %></p>
+                <div class="query_response">
+                    <h3><strong>YOUR QUERY</strong></h3>
+                    <p class='query'><%= en.query %></p>
 
-            
-                <h3><strong>ADMIN RESPONSE</strong></h3> 
-                <p class='response'><%= en.response %></p>
+                
+                    <h3><strong>ADMIN RESPONSE</strong></h3> 
+                    <p class='response'><%= en.response %></p>
+                </div>
 
+            <p class="query_time"><em>Created at <%= en.created_at.strftime('%I:%M%P at %B %d, %Y') %></em></p>
 
             <%= link_to 'Delete Post', destroy_enquiry_path(en.id), class: 'post_delete' %>
         </div>

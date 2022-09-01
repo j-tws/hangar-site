@@ -488,8 +488,8 @@ p21 = Photo.create!(
 
 p22 = Photo.create!(
     name: "Vue photo 1",
-    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1661933327/Project%201%20Images/vue_photo_1_foyjc9.jpg",
-    description: "Luscious chocolate souffle",
+    url: "https://res.cloudinary.com/dpu8e4ucu/image/upload/v1662040328/Project%201%20Images/vue_photo_3_alo0rn.jpg",
+    description: "Macadamia Tofu with Kelp and Native Flower",
     eatery_id: e8.id
 )
 

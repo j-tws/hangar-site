@@ -43,12 +43,15 @@
 <% end %>
 
 <% if @current_user.admin %>
-    <h2>Your created eateries</h2>
+    <h2 class="page_header">Your created eateries</h2>
+    <div class="eatery_grid">
+        <% @user.eateries.each do |eatery| %>
 
-    <% @user.eateries.each do |eatery| %>
+            <div class="eatery_show_box">
+            <%= link_to cl_image_tag(eatery.image, alt: eatery.name, class: 'eatery_index_img'), eatery_path(eatery.id) %>
+            <p><%= eatery.name %></p>
+            </div>
 
-        <%= link_to image_tag(eatery.image, alt: eatery.name, class: 'admin_eatery_img'), eatery_path(eatery.id) %>
-        <p><%= eatery.name %></p>
-
-    <% end %>
+        <% end %>
+    </div>
 <% end %>

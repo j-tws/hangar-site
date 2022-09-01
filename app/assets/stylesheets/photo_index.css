@@ -1,0 +1,57 @@
+.photo_show_box {
+    position: relative;
+    display: inline-block;
+    margin: 30px 20px;
+    padding: 25px;
+    border-radius: 30px;
+    border: 3px solid rgba(255, 211, 54, 0.89);
+    height: 400px;
+}
+
+.photo_show_box p {
+    width: 300px;
+    margin: 10px auto;
+}
+
+.photo_index_img {
+    width: 350px;
+    min-width: 200px;
+    border-radius: 10px;
+}
+
+.tag {
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgba(255, 211, 54, 0.89) ;
+    color: black;
+    font-size: 15pt;
+    margin: 10px;
+    /* border: 2px solid rgb(178, 178, 178); */
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.photo_show_box a{
+    text-decoration: none;
+    color: black;
+}
+
+.edit_photo {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px;
+    background-color: rgba(255, 211, 54, 0.89);
+    border-radius: 7px;
+}
+
+.delete_photo {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: rgba(255, 211, 54, 0.89);
+    border-radius: 7px;
+}

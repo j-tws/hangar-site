@@ -1,6 +1,11 @@
 
 <h2 class="page_header"><%= @eatery.name %></h2>
 
+<% if @current_user.present? && @current_user.admin %>
+    <%= link_to 'Edit Eatery', edit_eatery_path(@eatery.id), class: 'tag' %>
+    <%= link_to 'Delete Eatery', eatery_path(@eatery.id), class: 'tag', method: 'delete' %>
+<% end %>
+
 <div class="show_box">
 
 <%= cl_image_tag @eatery.image, alt: @eatery.name, class: 'eatery_show_img'  %>
@@ -41,10 +46,6 @@
     <% end %>
 </div>
 
-<% if @current_user.present? && @current_user.admin %>
-    <%= link_to 'Edit Eatery', edit_eatery_path(@eatery.id) %>
-    <%= link_to 'Delete Eatery', eatery_path(@eatery.id), method: 'delete' %>
-<% end %>
 <hr>
 <!--
 <%= link_to 'Make Booking', new_booking_path %>

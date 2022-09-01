@@ -26,15 +26,27 @@
     margin: 0 auto;
 }
 
+.query_time {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
+
 .avatar {
     /* border: 1px solid red; */
     display: inline-block;
     position: absolute;
-    left: 10px;
+    left: 20px;
 }
 
-.query_post p{
+.avatar p {
+    width: 100px;
+}
+
+.query_response p{
     font-size: 14pt;
+    width: 500px;
+    margin: 0 auto;
 }
 
 .query_post h3 {
@@ -52,4 +64,17 @@
     border-radius: 5px;
     border: 3px solid rgb(111, 111, 111);
 }
+
+.post_edit {
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+    border: 3px solid rgb(111, 111, 111);
+}
+
 

@@ -1,20 +1,23 @@
-<h2>All Gallery Photos</h2>
+<h2 class="page_header">All Gallery Photos</h2>
 
-<%= link_to 'Add New Photo', new_photo_path, id: 'new_photo' %>
+<%= link_to 'Add New Photo', new_photo_path, id: 'new_photo', class: 'tag' %>
 
 
-<div class="eatery_grid">
+<div class="photo_grid">
     <% @eateries.each do |eatery| %>
 
             <h2>Photos for <%= eatery.name %></h2>
 
                 <% eatery.photos.each do |photo| %>
-                <div class="eatery_show_box">
-                    <%= link_to cl_image_tag(photo.url, alt: photo.name, class: 'eatery_index_img'), photo_path(photo.id) %>
+                <div class="photo_show_box">
+                    <%= cl_image_tag(photo.url, alt: photo.name, class: 'photo_index_img') %>
 
                     <p><%= photo.name %></p>
-                    <%= link_to 'Edit Photo', edit_photo_path(photo.id) %>
-                    <%= link_to 'Delete Photo', destroy_photo_path(photo.id) %>
+                    <p><strong>Description</strong></p>
+                    <p><%= photo.description %></p>
+
+                    <%= link_to 'Edit Photo', edit_photo_path(photo.id), class: 'edit_photo' %>
+                    <%= link_to 'Delete Photo', destroy_photo_path(photo.id), class: 'delete_photo' %>
                 </div>
                 <% end %> <!-- users booking-->
 
