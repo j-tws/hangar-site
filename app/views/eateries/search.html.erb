@@ -4,7 +4,7 @@
     <% @results_eateries.each do |result| %>
 
         <div class="eatery_show_box">
-            <%= link_to image_tag(result.image, alt: result.name, class: 'eatery_index_img'), eatery_path(result.id) %>
+            <%= link_to cl_image_tag(result.image, alt: result.name, class: 'eatery_index_img'), eatery_path(result.id) %>
             <p><%= result.name %></p>
         
         </div>
