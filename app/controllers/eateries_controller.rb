@@ -107,7 +107,7 @@ class EateriesController < ApplicationController
   private
   
   def eatery_params
-    params.require(:eatery).permit(:name, :cuisine, :location, :price_range, :description)
+    params.require(:eatery).permit(:name, :cuisine, :location, :price_range, :description, :menu)
   end
 
   def booking_params

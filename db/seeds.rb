@@ -16,15 +16,15 @@ u1 = User.create!(
     name: "Morty Smith",
     email: "morty@rick.co",
     password: 'chicken',
-    image: 'https://static.wikia.nocookie.net/rickandmorty/images/e/ee/Morty501.png/revision/latest?cb=20210827150137',
+    image: 'https://comicvine.gamespot.com/a/uploads/scale_medium/6/66303/4469088-tumblr_inline_n0aleph3fl1r8rr6o.jpg',
     phone: '82381922'
 )
 
 u2 = User.create!(
-    name: "Saul Goodman",
-    email: "saul@bcs.co",
+    name: "Calvin Candie",
+    email: "cc@candie.co",
     password: 'chicken',
-    image: "https://upload.wikimedia.org/wikipedia/en/3/34/Jimmy_McGill_BCS_S3.png",
+    image: "https://ih1.redbubble.net/image.2477412968.4369/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     phone: '83827822'
 
 )
@@ -41,7 +41,7 @@ u4 = User.create!(
     name: "admin",
     email: "admin@test.co",
     password: 'chicken',
-    image: "https://images-platform.99static.com//IPe0v0pH9L0RRxKL6GKKoSPghrA=/0x0:2014x2014/fit-in/500x500/99designs-contests-attachments/132/132039/attachment_132039471",
+    image: "https://thedigitalbits.com/media/k2/items/cache/f66da0157e88ccf3deb2fbdbfc220fe0_XL.jpg",
     phone: '1231233',
     admin: true
 )
@@ -232,7 +232,7 @@ b1 = Booking.create!(
     people_number: 3,
     phone: "92309102",
     email: "123@chic.co",
-    time: "23rd August 2022, 7pm",
+    time: "8th September 2022, 7pm",
     user_id: u1.id,
     eatery_id: e2.id
 )
@@ -252,7 +252,7 @@ b3 = Booking.create!(
     people_number: 2,
     phone: "89721234",
     email: "1234@chic.co",
-    time: "3rd November 2022, 8am",
+    time: "23rd September 2022, 8am",
     user_id: u3.id,
     eatery_id: e3.id
 )
@@ -262,29 +262,49 @@ b4 = Booking.create!(
     people_number: 2,
     phone: "89723473",
     email: "555@chic.co",
-    time: "1st September 2022, 7pm",
+    time: "3rd november 2022, 7pm",
     user_id: u1.id,
     eatery_id: e4.id
 )
 
 b5 = Booking.create!(
     eatery_name: "Belle's Hot Chicken",
-    people_number: 3,
+    people_number: 6,
     phone: "89723122",
-    email: "test@chic.co",
-    time: "1st September 2022, 8pm",
+    email: "rick@chic.co",
+    time: "4th September 2022, 8pm",
     user_id: u2.id,
     eatery_id: e1.id
 )
 
 b6 = Booking.create!(
     eatery_name: "Green Refactory",
+    people_number: 2,
+    phone: "89333122",
+    email: "chicken@chic.co",
+    time: "7th September 2022, 12pm",
+    user_id: u3.id,
+    eatery_id: e3.id
+)
+
+b7 = Booking.create!(
+    eatery_name: "Vue De Monde",
+    people_number: 5,
+    phone: "89333122",
+    email: "test3@chic.co",
+    time: "10th September 2022, 12pm",
+    user_id: u1.id,
+    eatery_id: e8.id
+)
+
+b8 = Booking.create!(
+    eatery_name: "Quay",
     people_number: 3,
     phone: "89333122",
     email: "test@chic.co",
-    time: "1st September 2022, 12pm",
+    time: "7th September 2022, 12pm",
     user_id: u3.id,
-    eatery_id: e3.id
+    eatery_id: e6.id
 )
 
 puts "created #{Booking.count} bookings"
@@ -297,33 +317,33 @@ print "Creating enquiries..."
 Enquiry.destroy_all
 
 en1 = Enquiry.create!(
-    query: "Please add more eateries",
+    query: "Please help me add my favourite restaurant to the list!",
     user_id: u1.id,
-    response: "I've already added"
+    response: "Done. Already added!"
 )
 
 en2 = Enquiry.create!(
-    query: "Please help me cancel my booking",
+    query: "I need to cancel my booking last minute and I'm too busy to do so. Can you help me please",
     user_id: u2.id,
     response: "Done already canceled"
 )
 
 en3 = Enquiry.create!(
-    query: "Please add my favourite bar called this",
+    query: "Help me make my booking for Greens please! My internet is down!",
     user_id: u3.id,
-    response: "Already added"
+    response: "Serious? Even so I've already made booking for you"
 )
 
 en4 = Enquiry.create!(
-    query: "Please help me change my booking",
+    query: "Please help me change my booking at Belle's from 8pm to 7pm please",
     user_id: u2.id,
-    response: "Already changed"
+    response: "Considered done!"
 )
 
 en5 = Enquiry.create!(
-    query: "Please add my favourite cafe to the list",
+    query: "Please add my favourite cafe on this street to the list please!",
     user_id: u3.id,
-    response: "Done. Already added"
+    response: "Your cafe has not opened yet. Please check again."
 )
 
 en6 = Enquiry.create!(

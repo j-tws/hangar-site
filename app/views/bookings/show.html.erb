@@ -14,7 +14,7 @@
         <p><%= @booking.email %></p>
 
         <h2>Date and Time</h2>
-        <p><%= @booking.time %></p>
+        <p><%= @booking.time.strftime('%I:%M%P at %B %d, %Y') %></p>
 
         <% if @current_user.admin %>
             <h2>Booked by</h2>
