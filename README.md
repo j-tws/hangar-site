@@ -1,6 +1,6 @@
 # **HANGAR - A place to handle all your eatery bookings in one go!**
 
-link to live site - (https://hangares.herokuapp.com/)
+link to live site [here!](https://hangares.herokuapp.com/)
 
 PROJECT IDEA - A platform where individuals can handle all bookings in one place! Whether be cafe, restaurants, or hanging out at the pub, the app will have an in-built calendar to keep track of all your made bookings. Apart from that there is also a enquiry & support feature where you can send any queries or requests to the admin support and they will respond to you in your enquiry section. To add more fun, there is also a couple of admin accounts which are made to enhance interactivity with "normal" user accounts, and also the ability to control various aspect of the site. 
 
