@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
@@ -56,3 +56,4 @@ end
 gem 'pry-rails'
 gem "simple_calendar", "~> 2.4"
 gem "cloudinary", "~> 1.23"
+# gem "dotenv-rails", groups: [:development, :test]
